@@ -1,0 +1,57 @@
+export interface Image {
+  id: string;
+  productId: string;
+  url: string;
+
+}
+
+export interface CategoryDetails {
+  id: string;
+  name: string;
+  description: string;
+  imageUrl: string;
+  parentId: string | null;
+}
+
+export interface ProductCategory {
+  productId: string;
+  categoryId: string;
+  category: CategoryDetails;
+}
+
+export interface VariantValue {
+  id: string;
+  variantId: string;
+  value: string;
+  sku: string | null;
+  stock: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+}
+
+export interface Variant {
+  id: string;
+  productId: string;
+  name: string;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  values: VariantValue[];
+}
+
+export interface Product {
+  id: string;
+  name: string;
+  description: string;
+  price: string;
+  salePrice: string;
+  baseStock: number;
+  isActive: boolean;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  images: Image[];
+  categories: ProductCategory[];
+  variants: Variant[];
+}

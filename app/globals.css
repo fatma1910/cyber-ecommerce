@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --primary: black;
+  --secondary: white;
+  --font-inter: "Inter", sans-serif;
+  
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-foreground: var(--foreground);
+  --font-inter: var(--font-inter );
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+}
+
+
+.padding {
+  @apply xl:px-40  xl:py-20 lg:px-20 lg:py-10 md:px-10 md:py-5 px-5 py-3;
+}
+
+.padding-x {
+  @apply xl:px-40 lg:px-20 md:px-10 px-5;
+}
+.padding-y {
+  @apply xl:py-20 lg:py-10 md:py-5 py-3;
+}
