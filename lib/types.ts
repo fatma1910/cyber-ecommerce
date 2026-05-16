@@ -55,3 +55,25 @@ export interface Product {
   categories: ProductCategory[];
   variants: Variant[];
 }
+
+
+export interface Address {
+  line1: string;
+  phone: string;
+}
+
+export interface OrderItem {
+  productId: string;
+  quantity: number;
+}
+
+export interface CreateOrderPayload {
+  userId: string;
+  items: OrderItem[];
+  cityName: string;
+  address: Address;
+  paymentMethod: "CASH" | "CARD";
+  discountCode: string;
+  totalPrice: number;
+}
+

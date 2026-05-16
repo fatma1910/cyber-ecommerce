@@ -1,3 +1,4 @@
+import { CreateOrderPayload } from "./types";
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL + '/api' || 'http://localhost:3000/api';
 
@@ -78,4 +79,22 @@ export async function getShippingDetails() {
     if (!res.ok) throw new Error('Failed to fetch shipping details');
     const data = await res.json();
     return data.items;
+}
+
+
+
+
+export async function createOrder (OrderData: CreateOrderPayload) {
+    const res = await fetch(`${BASE_URL}/orders`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(OrderData)
+    });
+      if (!res.ok) {
+    throw new Error('Failed to create order')
+  }
+
+  return res.json();
 }
