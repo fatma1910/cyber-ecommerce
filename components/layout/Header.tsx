@@ -4,7 +4,7 @@ import { headerLinks } from "@/lib/constant";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { GoPerson } from "react-icons/go";
@@ -13,18 +13,9 @@ const Header = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const originalOverflow = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.overflow = originalOverflow;
-    };
-  }, [isOpen]);
-
 
   return (
-    <div className="padding-x py-2 sm:py-4 flex flex-row items-center justify-between">
+    <div className="padding-x py-2 sm:py-4 flex flex-row items-center justify-between border-b">
       <Image
         src="/icons/Logo.svg"
         alt="Logo"
@@ -47,7 +38,6 @@ const Header = () => {
           </div>
         </button>
 
-        {/* Desktop nav */}
         <div className="hidden sm:flex flex-row items-center gap-10">
           {headerLinks.map((link) => {
             
@@ -63,7 +53,7 @@ const Header = () => {
           })}
         </div>
 
-        {/* Mobile slide-in menu */}
+
         <div
           className={`sm:hidden fixed inset-0 z-50 transition ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
           aria-hidden={!isOpen}

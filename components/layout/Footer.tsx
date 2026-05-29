@@ -1,7 +1,7 @@
 import { footerLinks, headerLinks } from "@/lib/constant";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+
 
 const Footer = () => {
   return (
