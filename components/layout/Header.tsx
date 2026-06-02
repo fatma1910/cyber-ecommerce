@@ -100,6 +100,7 @@ const Header = () => {
           </Link>
           <Link href="/cart" className=" transition duration-150">
             <IoCartOutline size={24} className="sm:w-8 sm:h-8" />
+            
           </Link>
           <Link href="/login" className=" transition duration-150">
             <GoPerson size={24} className="sm:w-8 sm:h-8" />

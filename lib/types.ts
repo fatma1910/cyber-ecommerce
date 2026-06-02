@@ -77,3 +77,12 @@ export interface CreateOrderPayload {
   totalPrice: number;
 }
 
+
+export interface HomeCardProps {
+  bg: string;
+  img: string;
+  title: string;
+  desc: string;
+  titleColor: string;
+  butVariant: "link" | "default" | "outline" | "secondary" | "ghost" | "destructive" | null | undefined;
+}

@@ -1,6 +1,8 @@
-import { CreateOrderPayload } from "./types";
+import { CreateOrderPayload} from "./types";
 
 const BASE_URL = `${(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000').replace(/\/$/, '')}/api`;
+
+
 
 export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = '', }: {page:number , pageSize:number , q:string,  categoryId: string }) {
     try {
@@ -17,7 +19,7 @@ export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = 
         return data.items;
     } catch (error) {
         console.error('Failed to load products', error);
-        return null;
+        return [];
     }
 }
 
@@ -82,7 +84,7 @@ export async function getCategories({q , parentId}: {q:string, parentId: string}
         return data.items;
     } catch (error) {
         console.error('Failed to load categories', error);
-        return null;
+        return [];
     }
 }
 

@@ -1,9 +1,27 @@
+'use client'
+
 import Card from "@/components/shared/Card"
 import { getProducts } from "@/lib/data"
 import { Product } from "@/lib/types"
+import { useEffect, useState } from "react";
 
-const GetProducts = async() => {
-  const products = await getProducts({page:1, pageSize: 20, q:'', categoryId: ''})
+const GetProducts = () => {
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      const data = await getProducts({
+        page: 1,
+        pageSize: 20,
+        q: '',
+        categoryId: '',
+      });
+
+      setProducts(data);
+    };
+
+    loadProducts();
+  }, []);
 
   if (products === null) {
     return (

@@ -1,7 +1,6 @@
 import { getCategories } from '@/lib/data'
 import { CategoryDetails } from '@/lib/types'
 import Image from 'next/image'
-import React from 'react'
 
 const GetCategories = async () => {
     const categories = await getCategories({q:'', parentId: ''})
@@ -27,7 +26,7 @@ const GetCategories = async () => {
         {categories.map((category: CategoryDetails) => (
             <div key={category.id} className='w-full '>
                 <div className='p-6 rounded-xl bg-[#EDEDED] flex flex-col items-center gap-2 justify-center'>
-                    {category.imageUrl ? <Image src={category.imageUrl} width={48} height={48} alt={category.name} className='w-8 h-8 object-contain'/>
+                    {category.imageUrl ? <Image loading='eager' src={category.imageUrl} width={48} height={48} alt={category.name} className='w-8 h-8 object-contain'/>
                         : <div className='w-8 h-8 rounded-full bg-gray-300 flex items-center justify-center'>
                             <span className='text-sm text-gray-600'>{category.name.charAt(0).toUpperCase()}</span>
                         </div>    

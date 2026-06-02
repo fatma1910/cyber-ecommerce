@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+
 
 const Hero = () => {
   return (
@@ -15,7 +15,7 @@ const Hero = () => {
             </Link>
         </div>
         <div>
-          <Image src="/home/hero.png" alt="Hero Image" width={406} height={600} className='absolute right-28 top-1/6 ' />
+          <Image loading="eager" src="/home/hero.png" alt="Hero Image" width={406} height={600} className='absolute right-28 top-1/6 ' />
         </div>
     </section>
   )
