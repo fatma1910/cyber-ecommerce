@@ -10,14 +10,14 @@ import SaleSection from "./components/SaleSection";
 
 export default async function Home() {
   return (
-      <div>
-        <Hero/>
-        <Devices/>
-        <Categories/>
-        <FeaturedProducts/>
-        <FeaturedSection/>
-        <DiscountSection/>
-        <SaleSection/>
+    <div className="overflow-x-hidden">
+      <Hero />
+      <Devices />
+      <Categories />
+      <FeaturedProducts />
+      <FeaturedSection />
+      <DiscountSection />
+      <SaleSection />
     </div>
   );
 }

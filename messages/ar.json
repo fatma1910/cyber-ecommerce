@@ -1,0 +1,118 @@
+{
+  "common": {
+    "logoAlt": "شعار سايبر",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "menu": "القائمة",
+    "wishlist": "المفضلة",
+    "cart": "عربة التسوق",
+    "login": "الحساب",
+    "shopNow": "تسوق الآن"
+  },
+  "navigation": {
+    "logoAlt": "شعار سايبر",
+    "home": "الرئيسية",
+    "shop": "المتجر",
+    "about": "من نحن",
+    "contact": "اتصل بنا",
+    "termsOfService": "شروط الخدمة",
+    "privacyPolicy": "سياسة الخصوصية",
+    "faqs": "الأسئلة الشائعة"
+  },
+  "footer": {
+    "description": "نحن شركة تصميم داخلي سكني تقع في بورتلاند. يقدم الاستوديو الخاص بنا أكثر من ذلك",
+    "links": "الروابط",
+    "faqs": "الأسئلة الشائعة",
+    "copyright": "© 2026 Cyber. جميع الحقوق محفوظة."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Pro.Beyond",
+      "titlePrefix": "iPhone 14",
+      "titleEmphasis": "Pro",
+      "description": "صُمم ليغير كل شيء إلى الأفضل. للجميع",
+      "imageAlt": "صورة البانر الرئيسي"
+    },
+    "devices": {
+      "playstation": {
+        "alt": "PlayStation 5",
+        "title": "PlayStation 5",
+        "description": "وحدات معالجة مركزية ورسومية قوية للغاية مع SSD و I/O مدمج تعيد تعريف تجربة PlayStation."
+      },
+      "airpods": {
+        "alt": "Apple AirPods Max",
+        "titlePrefix": "Apple AirPods",
+        "titleEmphasis": "Max",
+        "description": "صوت حاسوبي. استمع، إنه قوي"
+      },
+      "vision": {
+        "alt": "Apple Vision Pro",
+        "titlePrefix": "Apple Vision",
+        "titleEmphasis": "Pro",
+        "description": "طريقة غامرة لتجربة الترفيه"
+      },
+      "macbook": {
+        "alt": "MacBook Air",
+        "titlePrefix": "MacBook",
+        "titleEmphasis": "Air",
+        "description": "يوفر MacBook Air الجديد مقاس 15 إنش مساحة أكبر لما تحبه مع شاشة Liquid Retina واسعة."
+      }
+    },
+    "categories": {
+      "title": "تصفح حسب الفئة",
+      "unavailable": "الفئات غير متاحة الآن.",
+      "empty": "لا توجد فئات متاحة بعد."
+    },
+    "discounts": {
+      "title": "خصومات حتى -50%"
+    },
+    "featuredTabs": {
+      "newArrival": "وصل حديثاً",
+      "bestseller": "الأكثر مبيعاً",
+      "featuredProducts": "منتجات مميزة"
+    },
+    "featuredCards": {
+      "popular": {
+        "title": "منتجات شائعة",
+        "description": "يجمع iPad بين شاشة Retina رائعة بقياس 10.2 بوصة وأداء مذهل وتعدد مهام وسهولة في الاستخدام."
+      },
+      "ipadPro": {
+        "title": "iPad Pro",
+        "description": "يجمع iPad بين شاشة Retina رائعة بقياس 10.2 بوصة وأداء مذهل وتعدد مهام وسهولة في الاستخدام."
+      },
+      "samsungGalaxy": {
+        "title": "Samsung Galaxy",
+        "description": "يجمع iPad بين شاشة Retina رائعة بقياس 10.2 بوصة وأداء مذهل وتعدد مهام وسهولة في الاستخدام."
+      },
+      "macbookPro": {
+        "title": "MacBook Pro",
+        "description": "يجمع iPad بين شاشة Retina رائعة بقياس 10.2 بوصة وأداء مذهل وتعدد مهام وسهولة في الاستخدام."
+      }
+    },
+    "products": {
+      "unavailable": "تعذر تحميل المنتجات الآن. حاول مرة أخرى بعد لحظات.",
+      "empty": "لا توجد منتجات متاحة بعد."
+    },
+    "sale": {
+      "titlePrefix": "تخفيضات",
+      "titleEmphasis": "الصيف الكبير",
+      "description": "Commodo fames vitae vitae leo mauris in. Eu consequat."
+    }
+  },
+  "products": {
+    "card": {
+      "sale": "تخفيض",
+      "buyNow": "اشترِ الآن",
+      "addedToWishlist": "تمت الإضافة إلى المفضلة",
+      "removedFromWishlist": "تمت الإزالة من المفضلة"
+    }
+  },
+  "shop": {
+    "title": "المتجر",
+    "description": "تصفح أحدث المنتجات واكتشف ما يناسب ذوقك."
+  },
+  "productPage": {
+    "title": "تفاصيل المنتج",
+    "description": "جارٍ تجهيز تفاصيل المنتج."
+  }
+}

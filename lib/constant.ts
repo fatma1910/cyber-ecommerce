@@ -1,34 +1,34 @@
 export const headerLinks = [
   {
-    name: "Home",
+    key: "home",
     href: "/",
   },
   {
-    name: "Shop",
+    key: "shop",
     href: "/shop",
   },
-    {
-    name: "About",
+  {
+    key: "about",
     href: "/about",
   },
-    {
-    name: "Contact",
+  {
+    key: "contact",
     href: "/contact",
   },
 ];
 
 
 export const footerLinks = [
-    {
-    name: "Terms of Service",
+  {
+    key: "termsOfService",
     href: "/",
   },
   {
-    name: "Privacy Policy",
+    key: "privacyPolicy",
     href: "/privacy",
   },
-    {
-    name: "FAQs",
+  {
+    key: "faqs",
     href: "/faqs",
   },
 ]
@@ -36,35 +36,31 @@ export const footerLinks = [
 
 export const  productsSection = [
   {
+    key: "popular",
     img:'/home/featured1.png',
-    title:'Popular Products',
-    desc:'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
     bg: '#FFFFFF',
     titleColor:'black',
     butVariant:'outline'
   },
   {
+    key: "ipadPro",
     img:'/home/featured2.png',
-    title:'Ipad Pro',
-    desc:'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
     bg:'#F9F9F9',
     titleColor:'black',
     butVariant:'outline'
 
   },
   {
+    key: "samsungGalaxy",
     img:'/home/featured3.png',
-    title:'Samsung Galaxy ',
-    desc:'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
     bg:'#EAEAEA',
     titleColor:'black',
     butVariant:'outline'
 
   },
   {
+    key: "macbookPro",
     img:'/home/featured4.png',
-    title:'Macbook Pro',
-    desc:'iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use.',
     bg: '#2C2C2C',
     titleColor:'white',
     butVariant:'secondary'

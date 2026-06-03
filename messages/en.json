@@ -1,0 +1,118 @@
+{
+  "common": {
+    "logoAlt": "Cyber logo",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menu": "Menu",
+    "wishlist": "Wishlist",
+    "cart": "Cart",
+    "login": "Account",
+    "shopNow": "Shop Now"
+  },
+  "navigation": {
+    "logoAlt": "Cyber logo",
+    "home": "Home",
+    "shop": "Shop",
+    "about": "About",
+    "contact": "Contact",
+    "termsOfService": "Terms of Service",
+    "privacyPolicy": "Privacy Policy",
+    "faqs": "FAQs"
+  },
+  "footer": {
+    "description": "We are a residential interior design firm located in Portland. Our boutique-studio offers more than",
+    "links": "Links",
+    "faqs": "FAQs",
+    "copyright": "© 2026 Cyber. All rights reserved."
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Pro.Beyond",
+      "titlePrefix": "iPhone 14",
+      "titleEmphasis": "Pro",
+      "description": "Created to change everything for the better. For everyone",
+      "imageAlt": "Hero image"
+    },
+    "devices": {
+      "playstation": {
+        "alt": "PlayStation 5",
+        "title": "PlayStation 5",
+        "description": "Incredibly powerful CPUs, GPUs, and an SSD with integrated I/O will redefine your PlayStation experience."
+      },
+      "airpods": {
+        "alt": "Apple AirPods Max",
+        "titlePrefix": "Apple AirPods",
+        "titleEmphasis": "Max",
+        "description": "Computational audio. Listen, it’s powerful"
+      },
+      "vision": {
+        "alt": "Apple Vision Pro",
+        "titlePrefix": "Apple Vision",
+        "titleEmphasis": "Pro",
+        "description": "An immersive way to experience entertainment"
+      },
+      "macbook": {
+        "alt": "MacBook Air",
+        "titlePrefix": "MacBook",
+        "titleEmphasis": "Air",
+        "description": "The new 15-inch MacBook Air makes room for more of what you love with a spacious Liquid Retina display."
+      }
+    },
+    "categories": {
+      "title": "Browse By Category",
+      "unavailable": "Categories are unavailable right now.",
+      "empty": "No categories are available yet."
+    },
+    "discounts": {
+      "title": "Discounts up to -50%"
+    },
+    "featuredTabs": {
+      "newArrival": "New Arrival",
+      "bestseller": "Bestseller",
+      "featuredProducts": "Featured Products"
+    },
+    "featuredCards": {
+      "popular": {
+        "title": "Popular Products",
+        "description": "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."
+      },
+      "ipadPro": {
+        "title": "iPad Pro",
+        "description": "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."
+      },
+      "samsungGalaxy": {
+        "title": "Samsung Galaxy",
+        "description": "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."
+      },
+      "macbookPro": {
+        "title": "MacBook Pro",
+        "description": "iPad combines a magnificent 10.2-inch Retina display, incredible performance, multitasking and ease of use."
+      }
+    },
+    "products": {
+      "unavailable": "We could not load products right now. Please try again in a moment.",
+      "empty": "No products are available yet."
+    },
+    "sale": {
+      "titlePrefix": "Big Summer",
+      "titleEmphasis": "Sale",
+      "description": "Commodo fames vitae vitae leo mauris in. Eu consequat."
+    }
+  },
+  "products": {
+    "card": {
+      "sale": "Sale",
+      "buyNow": "Buy Now",
+      "addedToWishlist": "Added to wishlist",
+      "removedFromWishlist": "Removed from wishlist"
+    }
+  },
+  "shop": {
+    "title": "Shop",
+    "description": "Browse the latest products and discover what fits your style."
+  },
+  "productPage": {
+    "title": "Product details",
+    "description": "Product details are being prepared."
+  }
+}

@@ -1,20 +1,22 @@
 'use client'
 
-import Card from "@/components/shared/Card"
-import { getProducts } from "@/lib/data"
-import { Product } from "@/lib/types"
+import Card from "@/components/shared/Card";
+import { getProducts } from "@/lib/data";
+import { Product } from "@/lib/types";
+import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 
 const GetProducts = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const t = useTranslations("home.products");
 
   useEffect(() => {
     const loadProducts = async () => {
       const data = await getProducts({
         page: 1,
         pageSize: 20,
-        q: '',
-        categoryId: '',
+        q: "",
+        categoryId: "",
       });
 
       setProducts(data);
@@ -26,26 +28,26 @@ const GetProducts = () => {
   if (products === null) {
     return (
       <div className="rounded-2xl border border-dashed border-gray-200 bg-white/80 p-8 text-center text-sm text-gray-500">
-        We could not load products right now. Please try again in a moment.
+        {t("unavailable")}
       </div>
-    )
+    );
   }
 
   if (!products.length) {
     return (
       <div className="rounded-2xl border border-dashed border-gray-200 bg-white/80 p-8 text-center text-sm text-gray-500">
-        No products are available yet.
+        {t("empty")}
       </div>
-    )
+    );
   }
 
   return (
-    <div className="grid grid-cols-4 gap-8 ">
-        {products.map((product:Product) => (
-            <Card key={product.id} {...product}/>
-        ))}
+    <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
+      {products.map((product: Product) => (
+        <Card key={product.id} {...product} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default GetProducts
+export default GetProducts;

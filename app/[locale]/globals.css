@@ -101,6 +101,26 @@ body {
   @apply xl:py-20 lg:py-10 md:py-5 py-3;
 }
 
+.featured-mobile-pagination .swiper-pagination-bullet {
+  @apply h-2 w-2 bg-black/50 pr-[.4px];
+}
+
+.featured-mobile-pagination .swiper-pagination-bullet-active {
+  @apply bg-black;
+}
+
+.featured-mobile-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+
+.featured-mobile-swiper .swiper-slide {
+  height: auto;
+}
+
+.featured-mobile-swiper .swiper-slide > * {
+  height: 100%;
+}
+
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: white;

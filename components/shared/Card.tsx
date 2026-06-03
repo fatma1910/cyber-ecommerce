@@ -3,18 +3,19 @@
 import { Product } from '@/lib/types'
 import Image from 'next/image'
 import { Button } from '../ui/button'
-import Link from 'next/link'
+import { Link } from '@/i18n/navigation'
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
 import { toast } from "sonner"
 import { useState } from 'react'
 import { useWishlistStore } from '@/store/wishlistStore'
-
+import { useTranslations } from 'next-intl'
 
 
 const Card = ( product:Product ) => {
     const [wishlisted, setWishlist] = useState(false);
     const { wishlist, toggleWishlist } = useWishlistStore();
+    const t = useTranslations('products.card');
 
     const isWishlisted = wishlist.some(
         (item) => item.id === product.id
@@ -24,9 +25,9 @@ const Card = ( product:Product ) => {
         setWishlist((prev) => !prev);
         if (!wishlisted) {
         toggleWishlist(product)
-          toast.success("Added to wishlist");
+          toast.success(t("addedToWishlist"));
         } else {
-            toast.error("Removed from wishlist");
+            toast.error(t("removedFromWishlist"));
         }
     }
 
@@ -34,7 +35,7 @@ const Card = ( product:Product ) => {
     <div className='bg-[#F6F6F6] py-6 px-4 rounded-[8px] h-full justify-between flex flex-col items-center gap-2 relative'>
         {product.salePrice &&
 
-            <p className='text-sm  absolute left-2 bg-red-500 text-white py-0.5 px-2 rounded-full top-2'>Sale</p>
+            <p className='text-sm  absolute left-2 bg-red-500 text-white py-0.5 px-2 rounded-full top-2'>{t("sale")}</p>
         }
         <button onClick={handleWishlistToggle} className='absolute top-5 right-5'>
             {isWishlisted ? <IoHeartSharp size={32} className=' text-red-500 text-xl cursor-pointer' /> : <IoHeartOutline size={32} className=' text-gray-400 text-xl cursor-pointer' />}
@@ -49,7 +50,7 @@ const Card = ( product:Product ) => {
             
         </div>
         <Link href={`/product/${product.id}`} className='w-full'>
-            <Button variant='default' size={'lg'} className={'w-full py-3 cursor-pointer'}>Buy Now</Button>
+            <Button variant='default' size={'lg'} className={'w-full py-3 cursor-pointer'}>{t("buyNow")}</Button>
         </Link>
     </div>
   )

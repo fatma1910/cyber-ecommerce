@@ -1,24 +1,29 @@
 "use client";
 
 import { headerLinks } from "@/lib/constant";
+import { routing } from "@/i18n/routing";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { Link, usePathname } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { GoPerson } from "react-icons/go";
 
+const localePattern = new RegExp(`^/(${routing.locales.join("|")})(?=/|$)`);
+
 const Header = () => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-
+  const t = useTranslations("navigation");
+  const common = useTranslations("common");
+  const normalizedPathname = pathname.replace(localePattern, "") || "/";
 
   return (
     <div className="padding-x py-2 sm:py-4 flex flex-row items-center justify-between border-b">
       <Image
         src="/icons/Logo.svg"
-        alt="Logo"
+        alt={common("logoAlt")}
         width={80}
         height={40}
         className="w-20 h-10 sm:w-25 sm:h-12"
@@ -26,7 +31,7 @@ const Header = () => {
       <div className="flex flex-row items-center gap-4 sm:gap-14">
         <button
           type="button"
-          aria-label={isOpen ? "Close menu" : "Open menu"}
+          aria-label={isOpen ? common("closeMenu") : common("openMenu")}
           aria-expanded={isOpen}
           onClick={() => setIsOpen(!isOpen)}
           className="sm:hidden"
@@ -39,20 +44,16 @@ const Header = () => {
         </button>
 
         <div className="hidden sm:flex flex-row items-center gap-10">
-          {headerLinks.map((link) => {
-            
-            return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`flex items-center gap-1 text-sm sm:text-base font-medium text-gray-400 hover:text-primary ${pathname === link.href ? " text-primary" : ""} transition duration-150`}
-              >
-                {link.name}
-              </Link>
-            );
-          })}
+          {headerLinks.map((link) => (
+            <Link
+              key={link.key}
+              href={link.href}
+              className={`flex items-center gap-1 text-sm sm:text-base font-medium text-gray-400 hover:text-primary ${normalizedPathname === link.href ? " text-primary" : ""} transition duration-150`}
+            >
+              {t(link.key)}
+            </Link>
+          ))}
         </div>
-
 
         <div
           className={`sm:hidden fixed inset-0 z-50 transition ${isOpen ? "pointer-events-auto" : "pointer-events-none"}`}
@@ -60,7 +61,7 @@ const Header = () => {
         >
           <button
             type="button"
-            aria-label="Close menu"
+            aria-label={common("closeMenu")}
             onClick={() => setIsOpen(false)}
             className={`absolute inset-0 bg-black/40 transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0"}`}
           />
@@ -70,39 +71,40 @@ const Header = () => {
             aria-modal="true"
           >
             <div className="px-5 py-4 flex items-center justify-between border-b border-gray-100">
-              <span className="text-sm font-semibold text-gray-900">Menu</span>
+              <span className="text-sm font-semibold text-gray-900">
+                {common("menu")}
+              </span>
               <button
                 type="button"
-                aria-label="Close menu"
+                aria-label={common("closeMenu")}
                 onClick={() => setIsOpen(false)}
                 className="text-gray-500 hover:text-gray-900 transition"
               >
-                ✕
+                ×
               </button>
             </div>
             <div className="px-5 py-4 flex flex-col gap-3">
               {headerLinks.map((link) => (
                 <Link
-                  key={link.name}
+                  key={link.key}
                   href={link.href}
-                  className={`text-base font-medium text-gray-700 hover:text-primary ${pathname === link.href ? " text-primary" : ""} transition duration-150`}
+                  className={`text-base font-medium text-gray-700 hover:text-primary ${normalizedPathname === link.href ? " text-primary" : ""} transition duration-150`}
                   onClick={() => setIsOpen(false)}
                 >
-                  {link.name}
+                  {t(link.key)}
                 </Link>
               ))}
             </div>
           </div>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
-          <Link href="/wishlist" className=" transition duration-150">
+          <Link href="/wishlist" aria-label={common("wishlist")} className=" transition duration-150">
             <IoIosHeartEmpty size={24} className="sm:w-8 sm:h-8" />
           </Link>
-          <Link href="/cart" className=" transition duration-150">
+          <Link href="/cart" aria-label={common("cart")} className=" transition duration-150">
             <IoCartOutline size={24} className="sm:w-8 sm:h-8" />
-            
           </Link>
-          <Link href="/login" className=" transition duration-150">
+          <Link href="/login" aria-label={common("login")} className=" transition duration-150">
             <GoPerson size={24} className="sm:w-8 sm:h-8" />
           </Link>
         </div>
