@@ -7,13 +7,11 @@ import { Link } from '@/i18n/navigation'
 import { IoHeartOutline } from "react-icons/io5";
 import { IoHeartSharp } from "react-icons/io5";
 import { toast } from "sonner"
-import { useState } from 'react'
 import { useWishlistStore } from '@/store/wishlistStore'
 import { useTranslations } from 'next-intl'
 
 
 const Card = ( product:Product ) => {
-    const [wishlisted, setWishlist] = useState(false);
     const { wishlist, toggleWishlist } = useWishlistStore();
     const t = useTranslations('products.card');
 
@@ -21,15 +19,15 @@ const Card = ( product:Product ) => {
         (item) => item.id === product.id
     );
 
-    const handleWishlistToggle = () => {
-        setWishlist((prev) => !prev);
-        if (!wishlisted) {
-        toggleWishlist(product)
-          toast.success(t("addedToWishlist"));
-        } else {
-            toast.error(t("removedFromWishlist"));
-        }
-    }
+   const handleWishlistToggle = () => {
+  toggleWishlist(product);
+
+  if (isWishlisted) {
+    toast.error(t("removedFromWishlist"));
+  } else {
+    toast.success(t("addedToWishlist"));
+  }
+};
 
   return (
     <div className='bg-[#F6F6F6] py-6 px-4 rounded-[8px] h-full justify-between flex flex-col items-center gap-2 relative'>
