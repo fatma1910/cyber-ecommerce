@@ -20,7 +20,7 @@ const Header = () => {
   const normalizedPathname = pathname.replace(localePattern, "") || "/";
 
   return (
-    <div className="padding-x py-2 sm:py-4 flex flex-row items-center justify-between border-b">
+    <div className="padding-x py-2 sm:py-4 flex flex-row items-center justify-between border-b border-gray-500">
       <Image
         src="/icons/Logo.svg"
         alt={common("logoAlt")}

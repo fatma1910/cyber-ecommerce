@@ -104,7 +104,9 @@
       "sale": "Sale",
       "buyNow": "Buy Now",
       "addedToWishlist": "Added to wishlist",
-      "removedFromWishlist": "Removed from wishlist"
+      "removedFromWishlist": "Removed from wishlist",
+      "addedToCart": "Added to cart",
+      "removedFromCart": "Removed from cart"
     }
   },
   "shop": {

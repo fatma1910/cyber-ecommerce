@@ -12,6 +12,8 @@ const headerLinks = [
 const FeaturedProducts = () => {
     const [cat, setCat] = useState('new-arrival')
     const t = useTranslations('home.featuredTabs')
+    
+
 
   return (
     <section className='padding'>
@@ -26,7 +28,7 @@ const FeaturedProducts = () => {
             )}
         </div>
         <div >
-            <GetProducts/>
+            <GetProducts   type={cat}/>
         </div>
     </section>
   )

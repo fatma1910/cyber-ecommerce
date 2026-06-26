@@ -104,7 +104,9 @@
       "sale": "تخفيض",
       "buyNow": "اشترِ الآن",
       "addedToWishlist": "تمت الإضافة إلى المفضلة",
-      "removedFromWishlist": "تمت الإزالة من المفضلة"
+      "removedFromWishlist": "تمت الإزالة من المفضلة",
+      "addedToCart": "تمت الإضافة إلى السلة",
+      "removedFromCart": "تمت الإزالة من السلة"
     }
   },
   "shop": {

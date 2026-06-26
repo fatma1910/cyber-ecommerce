@@ -1,3 +1,10 @@
+import { CiDeliveryTruck } from "react-icons/ci";
+import { IoStorefrontOutline } from "react-icons/io5";
+import { BsPatchCheck } from "react-icons/bs";
+
+
+
+
 export const headerLinks = [
   {
     key: "home",
@@ -67,3 +74,23 @@ export const  productsSection = [
   },
 
 ]
+
+
+export const productDetailsGrid = [
+  {
+    icon: <CiDeliveryTruck size={24} color="#797979" />,
+    title: "Free Delivery",
+    description: "1-2 day",
+  },
+  {
+    icon: <IoStorefrontOutline size={24} color="#797979" />,
+    title: "In Stock",
+    description: "Today",
+  },
+  {
+    icon: <BsPatchCheck size={24} color="#797979" />,
+    title: "Guaranteed",
+    description: "1 year",
+  },
+]
+

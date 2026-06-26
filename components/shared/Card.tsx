@@ -39,7 +39,7 @@ const Card = ( product:Product ) => {
             {isWishlisted ? <IoHeartSharp size={32} className=' text-red-500 text-xl cursor-pointer' /> : <IoHeartOutline size={32} className=' text-gray-400 text-xl cursor-pointer' />}
         </button>
         <div className='flex flex-col items-center justify-between  gap-4 pt-6 '>
-            <Image loading="eager" src={product.images[0].url} alt={product.name} width={160} height={160} className='object-cover h-40 w-40' />
+            <Image loading="eager" src={product.images[0].url} alt={product.name} width={160} height={160} className='object-contain h-40 w-40' />
             <h2 className='text-base font-medium'>{product.name}</h2>
             <div className='flex items-center gap-2'>
             <p className='text-2xl font-semibold'>${product.price}</p>
@@ -47,7 +47,7 @@ const Card = ( product:Product ) => {
             </div>
             
         </div>
-        <Link href={`/product/${product.id}`} className='w-full'>
+        <Link href={`/shop/${product.slug}`} className='w-full'>
             <Button variant='default' size={'lg'} className={'w-full py-3 cursor-pointer'}>{t("buyNow")}</Button>
         </Link>
     </div>

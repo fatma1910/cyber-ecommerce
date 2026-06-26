@@ -1,49 +1,65 @@
-'use client'
+"use client";
 
+import { useEffect, useRef, useState } from "react";
 import Card from "@/components/shared/Card";
+
 import { getProducts } from "@/lib/data";
 import { Product } from "@/lib/types";
-import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import CardSkeleton from "@/components/shared/CardSkeleton";
 
-const GetProducts = () => {
+const GetProducts = ({ type }: { type: string }) => {
   const [products, setProducts] = useState<Product[]>([]);
-  const t = useTranslations("home.products");
+  const [loading, setLoading] = useState(true);
+
+  // Cache
+  const cache = useRef<Record<string, Product[]>>({});
 
   useEffect(() => {
-    const loadProducts = async () => {
-      const data = await getProducts({
-        page: 1,
-        pageSize: 20,
-        q: "",
-        categoryId: "",
-      });
 
-      setProducts(data);
+    if (cache.current[type]) {
+      setProducts(cache.current[type]);
+      setLoading(false);
+      return;
+    }
+
+    const loadProducts = async () => {
+      setLoading(true);
+
+      try {
+        const data = await getProducts({
+          page: 1,
+          pageSize: 20,
+          q: "",
+          categoryId: "",
+          type,
+        });
+
+        cache.current[type] = data;
+        setProducts(data);
+      } catch (error) {
+        console.error(error);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
     };
 
     loadProducts();
-  }, []);
+  }, [type]);
 
-  if (products === null) {
+  if (loading) {
     return (
-      <div className="rounded-2xl border border-dashed border-gray-200 bg-white/80 p-8 text-center text-sm text-gray-500">
-        {t("unavailable")}
-      </div>
-    );
-  }
-
-  if (!products.length) {
-    return (
-      <div className="rounded-2xl border border-dashed border-gray-200 bg-white/80 p-8 text-center text-sm text-gray-500">
-        {t("empty")}
+      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+        {Array.from({ length: 4 }).map((_, i) => (
+          <CardSkeleton key={i} />
+        ))}
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-      {products.map((product: Product) => (
+    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      {products.map((product) => (
         <Card key={product.id} {...product} />
       ))}
     </div>

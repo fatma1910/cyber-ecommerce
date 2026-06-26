@@ -4,10 +4,10 @@ const BASE_URL = `${(process.env.NEXT_PUBLIC_BASE_URL ?? 'http://localhost:3000'
 
 
 
-export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = '', }: {page:number , pageSize:number , q:string,  categoryId: string }) {
+export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = '',type='' }: {page:number , pageSize:number , q:string,  categoryId: string , type: string}) {
     try {
         const res = await fetch(
-            `${BASE_URL}/products?page=${page}&pageSize=${pageSize}&q=${q}&categoryId=${categoryId}`,
+            `${BASE_URL}/products?page=${page}&pageSize=${pageSize}&q=${q}&categoryId=${categoryId}&type=${type}`,
            { 
             next: { revalidate: 60 } 
            }
@@ -25,9 +25,9 @@ export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = 
 
 
 
-export async function getProductDetails(id: string) {
+export async function getProductDetails(slug: string) {
     try {
-        const res = await fetch(`${BASE_URL}/products/${id}`, {
+        const res = await fetch(`${BASE_URL}/products/${slug}`, {
             next: { revalidate: 60 }
         });
 
