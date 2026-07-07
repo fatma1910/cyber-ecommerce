@@ -3,6 +3,7 @@ import { getProductDetails } from "@/lib/data";
 import { Product } from "@/lib/types";
 import { getTranslations } from "next-intl/server";
 import ProductDetails from "./components/ProductDetails";
+import ProductDescription from "./components/ProductDescription";
 
 const page = async ({
   params,
@@ -18,6 +19,7 @@ const page = async ({
         <BreadCrumb category={product.categories[0].category.name} productName={product.name} />
       </div>
       <ProductDetails product={product} />
+      <ProductDescription product={product} />
       {/* <h1 className="text-3xl font-semibold">{product.name}</h1>
       <p className="mt-2 text-sm text-gray-500">{t("description")}</p> */}
     </div>

@@ -1,0 +1,128 @@
+.card {
+  position: relative;
+  margin: 0 auto;
+  max-width: 1024px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  background: #fff;
+  padding: 24px 20px;
+}
+
+@media (min-width: 640px) {
+  .card {
+    padding: 32px 32px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .card {
+    padding: 32px 48px;
+  }
+}
+
+.title {
+  margin: 0 0 16px;
+  color: #09090b;
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+@media (min-width: 640px) {
+  .title {
+    font-size: 1.25rem;
+  }
+}
+
+.body {
+  max-height: 1000px;
+  overflow: hidden;
+  color: #52525b;
+  font-size: 0.875rem;
+  line-height: 1.75rem;
+  transition: max-height 420ms ease, opacity 220ms ease;
+  will-change: max-height, opacity;
+}
+
+.collapsed {
+  max-height: 420px;
+  opacity: 0.96;
+}
+
+.body :global(h2) {
+  margin: 0 0 16px;
+  color: #09090b;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.body :global(h3) {
+  margin: 32px 0 16px;
+  color: #09090b;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.body :global(p) {
+  margin: 0 0 16px;
+}
+
+.body :global(table) {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.body :global(.spec-table) {
+  margin-top: 8px;
+}
+
+.body :global(.spec-table tr) {
+  border-bottom: 1px solid rgba(228, 228, 231, 0.8);
+}
+
+.body :global(.spec-table td) {
+  padding: 16px 0;
+  vertical-align: top;
+}
+
+.body :global(.spec-table td:first-child) {
+  padding-right: 24px;
+  color: #3f3f46;
+}
+
+.body :global(.spec-table td:last-child) {
+  color: #09090b;
+  font-weight: 500;
+  text-align: right;
+}
+
+.fade {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 64px;
+  height: 96px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);
+  opacity: 1;
+  transition: opacity 220ms ease;
+}
+
+.fadeHidden {
+  opacity: 0;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.toggleIcon {
+  transition: transform 220ms ease;
+}
+
+.toggleIconExpanded {
+  transform: rotate(180deg);
+}

@@ -55,8 +55,7 @@ export interface Product {
   categories: ProductCategory[];
   variants: Variant[];
   slug: string;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  detailsHtml: any;
+  detailsHtml: string | null;
   isFeatured: boolean;
   bestSeller: boolean;
 }
