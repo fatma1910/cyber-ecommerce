@@ -140,3 +140,20 @@ export async function createOrder (OrderData: CreateOrderPayload) {
         throw error;
     }
 }
+
+
+
+
+export async function getProductReviews(productSlug: string) {
+    try {
+        const res = await fetch(`${BASE_URL}/products/${productSlug}/reviews`, {
+            next: { revalidate: 60 }
+        });
+        if (!res.ok) throw new Error('Failed to fetch product reviews');
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error('Failed to load product reviews', error);
+        return [];
+    }
+}

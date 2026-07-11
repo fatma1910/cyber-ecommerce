@@ -90,3 +90,29 @@ export interface HomeCardProps {
   titleColor: string;
   butVariant: "link" | "default" | "outline" | "secondary" | "ghost" | "destructive" | null | undefined;
 }
+
+
+
+
+export interface Review {
+  id: string;
+  name: string;
+  rating: number;
+  comment: string;
+  createdAt: string; 
+  updatedAt: string; 
+}
+
+
+export interface RatingCount {
+  rating: number;
+  count: number;
+}
+
+export interface ProductReviews {
+  id: string;
+  reviews: Review[];
+  totalReviews: number;
+  avgRating: number;
+  ratingCounts: RatingCount[];
+}

@@ -4,6 +4,7 @@ import { Product } from "@/lib/types";
 import { getTranslations } from "next-intl/server";
 import ProductDetails from "./components/ProductDetails";
 import ProductDescription from "./components/ProductDescription";
+import ProductReviews from "./components/ProductReviews";
 
 const page = async ({
   params,
@@ -20,6 +21,7 @@ const page = async ({
       </div>
       <ProductDetails product={product} />
       <ProductDescription product={product} />
+      <ProductReviews productSlug={product.slug} />
       {/* <h1 className="text-3xl font-semibold">{product.name}</h1>
       <p className="mt-2 text-sm text-gray-500">{t("description")}</p> */}
     </div>
