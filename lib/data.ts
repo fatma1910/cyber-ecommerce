@@ -157,3 +157,40 @@ export async function getProductReviews(productSlug: string) {
         return [];
     }
 }
+
+export async function postReview(productSlug: string, reviewData: { rating: number; comment: string }) {
+    try {
+        const res = await fetch(`${BASE_URL}/products/${productSlug}/reviews`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(reviewData)
+        });
+
+        if (!res.ok) throw new Error('Failed to post review');
+        const data = await res.json();
+        return data;
+    } catch (error) {
+        console.error('Failed to post review', error);
+        throw error;
+    }
+}
+
+
+export async function getRelatedProducts(productSlug: string) {
+    try {
+        const res = await fetch(`${BASE_URL}/products/${productSlug}/related?limit=6`, {
+            next: { revalidate: 60 }
+        });
+        if (!res.ok) throw new Error('Failed to fetch related products');
+        const data = await res.json();
+        return data.items;
+    }
+    catch (error) {
+        console.error('Failed to load related products', error);
+        return [];
+    }
+}
+
+
