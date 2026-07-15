@@ -1,6 +1,5 @@
 import { getProductReviews } from '@/lib/data'
-import ReviewsRating from './ReviewsRating'
-import AllReviews from './AllReviews'
+import ProductReviewsClient from './ProductReviewsClient'
 
 
 const ProductReviews = async({ productSlug }: { productSlug: string }) => {
@@ -9,8 +8,7 @@ const ProductReviews = async({ productSlug }: { productSlug: string }) => {
   return (
     <section className='padding flex flex-col gap-6 '>
         <h1 className='font-medium text-[24px]'>Reviews</h1>
-        <ReviewsRating rate={reviews} />
-        <AllReviews reviews={reviews} />
+        <ProductReviewsClient initialReviews={reviews} productSlug={productSlug} />
         
     </section>
   )

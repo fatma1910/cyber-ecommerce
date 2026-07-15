@@ -1,6 +1,17 @@
-import { CreateOrderPayload} from "./types";
+import { CreateOrderPayload, CreateReviewPayload, ProductReviews, Review } from "./types";
 
 const BASE_URL = `${process.env.NEXT_PUBLIC_BASE_URL}/api`;
+
+const emptyProductReviews = (id = "reviews"): ProductReviews => ({
+    id,
+    reviews: [],
+    totalReviews: 0,
+    avgRating: 0,
+    ratingCounts: [1, 2, 3, 4, 5].map((rating) => ({
+        rating,
+        count: 0,
+    })),
+});
 
 
 
@@ -151,14 +162,14 @@ export async function getProductReviews(productSlug: string) {
         });
         if (!res.ok) throw new Error('Failed to fetch product reviews');
         const data = await res.json();
-        return data;
+        return data as ProductReviews;
     } catch (error) {
         console.error('Failed to load product reviews', error);
-        return [];
+        return emptyProductReviews();
     }
 }
 
-export async function postReview(productSlug: string, reviewData: { rating: number; comment: string }) {
+export async function postReview(productSlug: string, reviewData: CreateReviewPayload) {
     try {
         const res = await fetch(`${BASE_URL}/products/${productSlug}/reviews`, {
             method: 'POST',
@@ -170,7 +181,7 @@ export async function postReview(productSlug: string, reviewData: { rating: numb
 
         if (!res.ok) throw new Error('Failed to post review');
         const data = await res.json();
-        return data;
+        return data as { item?: Review; review?: Review; data?: Review } | Review;
     } catch (error) {
         console.error('Failed to post review', error);
         throw error;

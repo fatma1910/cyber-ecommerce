@@ -116,3 +116,9 @@ export interface ProductReviews {
   avgRating: number;
   ratingCounts: RatingCount[];
 }
+
+export interface CreateReviewPayload {
+  name: string;
+  rating: number;
+  comment: string;
+}
