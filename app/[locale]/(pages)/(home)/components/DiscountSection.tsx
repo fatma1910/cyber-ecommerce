@@ -10,13 +10,15 @@ const DiscountSection = async () => {
     pageSize: 4,
     q: "",
     categoryId: "",
+    type: "",
   });
 
   const discountedProducts = data.filter(
-    (product: Product) => product.salePrice && product.salePrice < product.price
+    (product: Product) =>
+      product.salePrice && product.salePrice < product.price,
   );
 
-  return (  
+  return (
     <section className="padding">
       <h4 className="mb-6 text-2xl font-medium sm:mb-7 sm:text-3xl">
         {t("title")}
