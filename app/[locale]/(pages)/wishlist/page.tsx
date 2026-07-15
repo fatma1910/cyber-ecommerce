@@ -10,7 +10,7 @@ import { TbHeartBrokenFilled } from "react-icons/tb";
 
 const Page = () => {
         const { wishlist } = useWishlistStore();
-        console.log(wishlist)
+        
     
   return (
     <div className="padding flex flex-col gap-6 ">

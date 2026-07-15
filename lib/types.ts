@@ -122,3 +122,9 @@ export interface CreateReviewPayload {
   rating: number;
   comment: string;
 }
+
+
+export interface CartItem extends Product {
+  quantity: number;
+  selectedVariants: Record<string, string>;
+}

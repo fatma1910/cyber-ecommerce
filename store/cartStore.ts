@@ -1,17 +1,21 @@
-import { Product } from "@/lib/types";
+import { CartItem, Product } from "@/lib/types";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
-
-export interface CartItem extends Product {
-  quantity: number;
-  selectedVariants: Record<string, string>;
-}
 
 interface CartStore {
   cartItems: CartItem[];
 
+  subtotal: () => number;
+  tax: () => number;
+  total: () => number;
+
   addToCart: (
     product: Product,
+    selectedVariants: Record<string, string>
+  ) => void;
+
+  increaseQuantity: (
+    id: string,
     selectedVariants: Record<string, string>
   ) => void;
 
@@ -28,10 +32,22 @@ interface CartStore {
   clearCart: () => void;
 }
 
+const TAX_RATE = 0.14; 
+
 export const useCartStore = create<CartStore>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       cartItems: [],
+
+      subtotal: () =>
+        get().cartItems.reduce(
+          (sum, item) => sum + Number(item.price) * item.quantity,
+          0
+        ),
+
+      tax: () => get().subtotal() * TAX_RATE,
+
+      total: () => get().subtotal() + get().tax(),
 
       addToCart: (product, selectedVariants) =>
         set((state) => {
@@ -68,6 +84,20 @@ export const useCartStore = create<CartStore>()(
             ],
           };
         }),
+
+      increaseQuantity: (id, selectedVariants) =>
+        set((state) => ({
+          cartItems: state.cartItems.map((item) =>
+            item.id === id &&
+            JSON.stringify(item.selectedVariants) ===
+              JSON.stringify(selectedVariants)
+              ? {
+                  ...item,
+                  quantity: item.quantity + 1,
+                }
+              : item
+          ),
+        })),
 
       decreaseQuantity: (id, selectedVariants) =>
         set((state) => ({

@@ -9,6 +9,7 @@ import { useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { GoPerson } from "react-icons/go";
+import { useCartStore } from "@/store/cartStore";
 
 const localePattern = new RegExp(`^/(${routing.locales.join("|")})(?=/|$)`);
 
@@ -18,9 +19,12 @@ const Header = () => {
   const t = useTranslations("navigation");
   const common = useTranslations("common");
   const normalizedPathname = pathname.replace(localePattern, "") || "/";
+  const { cartItems } = useCartStore();
+  console.log(cartItems, "cart in header");
 
   return (
     <div className="padding-x py-2 sm:py-4 flex flex-row items-center justify-between border-b border-gray-500">
+      <Link href="/" className="flex items-center gap-2 sm:gap-4">
       <Image
         src="/icons/Logo.svg"
         alt={common("logoAlt")}
@@ -28,6 +32,7 @@ const Header = () => {
         height={40}
         className="w-20 h-10 sm:w-25 sm:h-12"
       />
+      </Link>
       <div className="flex flex-row items-center gap-4 sm:gap-14">
         <button
           type="button"
@@ -101,7 +106,12 @@ const Header = () => {
           <Link href="/wishlist" aria-label={common("wishlist")} className=" transition duration-150">
             <IoIosHeartEmpty size={24} className="sm:w-8 sm:h-8" />
           </Link>
-          <Link href="/cart" aria-label={common("cart")} className=" transition duration-150">
+          <Link href="/cart" aria-label={common("cart")} className=" transition duration-150 relative">
+          {cartItems.length > 0 && (
+            <span className="absolute top-0 right-0 inline-flex items-center justify-center p-0.5 px-1  text-[10px] font-bold leading-none text-white bg-red-600 rounded-full transform translate-x-1/2 -translatey-1/2">
+              {cartItems.length}
+            </span>
+          )}
             <IoCartOutline size={24} className="sm:w-8 sm:h-8" />
           </Link>
           <Link href="/login" aria-label={common("login")} className=" transition duration-150">
