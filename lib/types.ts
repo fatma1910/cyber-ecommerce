@@ -11,6 +11,7 @@ export interface CategoryDetails {
   description: string;
   imageUrl: string;
   parentId: string | null;
+  children: CategoryDetails[];
 }
 
 export interface ProductCategory {
