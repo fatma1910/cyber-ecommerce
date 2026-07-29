@@ -28,7 +28,7 @@ export function ShopBreadcrumb() {
         </BreadcrumbItem>
         <BreadcrumbSeparator />
             <BreadcrumbItem>
-          <BreadcrumbLink render={<a href="#">Shop</a>} />  
+          <BreadcrumbLink render={<Link href="/shop">Shop</Link>} />  
             </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>

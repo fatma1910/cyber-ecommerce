@@ -7,5 +7,5 @@ export default async function SidebarWrapper() {
     parentId: "",
   });
 
-  return <Sidebar categories={categories} />;
+  return <Sidebar categories={categories} maxPrice={1000} />;
 }
