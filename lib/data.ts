@@ -15,10 +15,10 @@ const emptyProductReviews = (id = "reviews"): ProductReviews => ({
 
 
 
-export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = '',type='' }: {page:number , pageSize:number , q:string,  categoryId: string , type: string}) {
+export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = '',type='' , minPrice=0,maxPrice=1000,sort='',subcategoryId=''}  : {page:number , pageSize:number , q:string,  categoryId: string , type: string , minPrice: number , maxPrice: number , sort: string ,subcategoryId:string}) {
     try {
         const res = await fetch(
-            `${BASE_URL}/products?page=${page}&pageSize=${pageSize}&q=${q}&categoryId=${categoryId}&type=${type}`,
+            `${BASE_URL}/products?page=${page}&pageSize=${pageSize}&q=${q}&categoryId=${categoryId}&type=${type}&minPrice=${minPrice}&maxPrice=${maxPrice}&sort=${sort}&subcategoryId=${subcategoryId}`,
            { 
             next: { revalidate: 60 } 
            }

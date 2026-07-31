@@ -27,72 +27,69 @@ export default function Sidebar({
   const pathname = usePathname();
   const searchParams = useSearchParams();
 
-  const categoryParam = searchParams.get("category");
-  const subcategoryParam = searchParams.get("subcategory");
+  const categoryId = searchParams.get("categoryId");
+  const subcategoryId = searchParams.get("subcategoryId");
 
-  // Open category from URL
-  const initialOpenCategory = categories.find((category) => {
-    return (
-      category.name === categoryParam ||
-      category.children?.some(
-        (child) => child.name === subcategoryParam
-      )
-    );
+  const [openCategory, setOpenCategory] = useState<string[]>(() => {
+    const selectedCategory = categories.find((category) => {
+      if (category.id.toString() === categoryId) return true;
+
+      return category.children?.some(
+        (child) => child.id.toString() === subcategoryId
+      );
+    });
+
+    return selectedCategory ? [selectedCategory.id.toString()] : [];
   });
 
-  const [openCategory, setOpenCategory] = useState<string | undefined>(
-    initialOpenCategory?.id.toString()
-  );
-
-  // Price state
   const [priceRange, setPriceRange] = useState<number[]>([
     Number(searchParams.get("minPrice")) || 0,
     Number(searchParams.get("maxPrice")) || maxPrice,
   ]);
 
-
   const updateURL = (params: URLSearchParams) => {
     const query = params.toString();
 
-    router.push(
-      query ? `${pathname}?${query}` : pathname
-    );
+    router.push(query ? `${pathname}?${query}` : pathname);
   };
 
-
-  const handleCategoryChange = (category: string) => {
+  const handleCategoryChange = (id: string) => {
     const params = new URLSearchParams(searchParams.toString());
+    const selectedCategoryId = params.get("categoryId");
+    const selectedSubcategoryId = params.get("subcategoryId");
 
-    if (params.get("category") === category) {
-      params.delete("category");
-      params.delete("subcategory");
+    if (selectedCategoryId === id && selectedSubcategoryId) {
+      params.delete("subcategoryId");
+    } else if (selectedCategoryId === id) {
+      params.delete("categoryId");
+      params.delete("subcategoryId");
     } else {
-      params.set("category", category);
-      params.delete("subcategory");
+      params.set("categoryId", id);
+      params.delete("subcategoryId");
     }
 
+    setOpenCategory([id]);
     updateURL(params);
   };
-
 
   const handleSubCategoryChange = (
-    parentCategory: string,
-    subcategory: string
+    categoryId: string,
+    subcategoryId: string
   ) => {
     const params = new URLSearchParams(searchParams.toString());
+    const selectedCategoryId = params.get("categoryId");
+    const selectedSubcategoryId = params.get("subcategoryId");
 
-    // keep parent category
-    params.set("category", parentCategory);
-
-    if (params.get("subcategory") === subcategory) {
-      params.delete("subcategory");
+    if (selectedCategoryId === categoryId && selectedSubcategoryId === subcategoryId) {
+      params.delete("subcategoryId");
     } else {
-      params.set("subcategory", subcategory);
+      params.set("categoryId", categoryId);
+      params.set("subcategoryId", subcategoryId);
     }
 
+    setOpenCategory([categoryId]);
     updateURL(params);
   };
-
 
   const handleApplyPrice = () => {
     const params = new URLSearchParams(searchParams.toString());
@@ -102,7 +99,6 @@ export default function Sidebar({
 
     updateURL(params);
   };
-
 
   const handleClearPrice = () => {
     setPriceRange([0, maxPrice]);
@@ -115,12 +111,10 @@ export default function Sidebar({
     updateURL(params);
   };
 
-
   return (
     <aside className="w-64 space-y-8">
-
-      {/* Categories */}
       <Accordion
+        // type="single"
         value={openCategory}
         onValueChange={setOpenCategory}
         className="w-full"
@@ -131,26 +125,22 @@ export default function Sidebar({
             value={category.id.toString()}
             className="border-b border-gray-200"
           >
-
-            <AccordionTrigger
-              className="text-lg font-medium hover:no-underline"
-            >
+            <AccordionTrigger className="cursor-pointer text-lg font-medium hover:no-underline">
               {category.name}
             </AccordionTrigger>
 
-
             <AccordionContent className="space-y-3 pb-4">
-
-              {/* Parent Category */}
-              <div className="flex items-center gap-2">
-
+              <div className="flex items-center gap-2 cursor-pointer">
                 <Checkbox
                   id={`category-${category.id}`}
                   checked={
-                    categoryParam === category.name
+                    categoryId === category.id.toString() &&
+                    !subcategoryId
                   }
                   onCheckedChange={() =>
-                    handleCategoryChange(category.name)
+                    handleCategoryChange(
+                      category.id.toString()
+                    )
                   }
                 />
 
@@ -160,32 +150,26 @@ export default function Sidebar({
                 >
                   All
                 </label>
-
               </div>
 
-
-
-              {/* Sub Categories */}
               {category.children?.map((child) => (
-
                 <div
                   key={child.id}
                   className="flex items-center gap-2 pl-5"
                 >
-
                   <Checkbox
                     id={`subcategory-${child.id}`}
                     checked={
-                      subcategoryParam === child.name
+                      categoryId === category.id.toString() &&
+                      subcategoryId === child.id.toString()
                     }
                     onCheckedChange={() =>
                       handleSubCategoryChange(
-                        category.name,
-                        child.name
+                        category.id.toString(),
+                        child.id.toString()
                       )
                     }
                   />
-
 
                   <label
                     htmlFor={`subcategory-${child.id}`}
@@ -193,50 +177,35 @@ export default function Sidebar({
                   >
                     {child.name}
                   </label>
-
                 </div>
-
               ))}
-
             </AccordionContent>
-
           </AccordionItem>
         ))}
       </Accordion>
 
-
-
       {/* Price Filter */}
-      <div className="space-y-5 rounded-lg ">
-
+      <div className="space-y-5 rounded-lg">
         <h3 className="text-lg font-semibold">
           Price
         </h3>
-
 
         <Slider
           min={0}
           max={maxPrice}
           step={10}
           value={priceRange}
-          onValueChange={setPriceRange}
+          onValueChange={(value) =>
+            setPriceRange(value as number[])
+          }
         />
 
-
         <div className="flex justify-between text-sm font-medium">
-          <span>
-            ${priceRange[0]}
-          </span>
-
-          <span>
-            ${priceRange[1]}
-          </span>
+          <span>${priceRange[0]}</span>
+          <span>${priceRange[1]}</span>
         </div>
 
-
-
         <div className="flex gap-2">
-
           <Button
             className="flex-1"
             onClick={handleApplyPrice}
@@ -244,18 +213,14 @@ export default function Sidebar({
             Apply
           </Button>
 
-
           <Button
             variant="outline"
             onClick={handleClearPrice}
           >
             Clear
           </Button>
-
         </div>
-
       </div>
-
     </aside>
   );
 }

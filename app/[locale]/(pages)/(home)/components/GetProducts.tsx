@@ -32,6 +32,10 @@ const GetProducts = ({ type }: { type: string }) => {
           q: "",
           categoryId: "",
           type,
+          minPrice: 0,
+          maxPrice: 1000,
+          sort: "",
+          subcategoryId:''
         });
 
         cache.current[type] = data;

@@ -13,13 +13,15 @@ import {
 } from "@/components/ui/breadcrumb"
 
 import { useSearchParams } from "next/navigation";
+import { CategoryDetails } from "@/lib/types";
 
 
-export function ShopBreadcrumb() {
+export function ShopBreadcrumb({ categories}: { categories?:CategoryDetails[] }) {
   const searchParams = useSearchParams();
 
-  // const search = searchParams.get("search");
-  const category = searchParams.get("category");
+  const categoryId = searchParams.get("category");
+  const category = categories?.find((cat) => cat.id.toString() === categoryId)?.name;
+
   return (
     <Breadcrumb>
       <BreadcrumbList>
