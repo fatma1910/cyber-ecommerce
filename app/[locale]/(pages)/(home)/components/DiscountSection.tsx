@@ -11,6 +11,10 @@ const DiscountSection = async () => {
     q: "",
     categoryId: "",
     type: "",
+    maxPrice:1000,
+    minPrice:0,
+    sort:'',
+    subcategoryId:''
   });
 
   const discountedProducts = data.filter(
