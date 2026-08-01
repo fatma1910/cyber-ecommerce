@@ -7,7 +7,33 @@
     "wishlist": "Wishlist",
     "cart": "Cart",
     "login": "Account",
-    "shopNow": "Shop Now"
+    "shopNow": "Shop Now",
+    "apply": "Apply",
+    "clear": "Clear",
+    "checkout": "Checkout",
+    "loading": "Loading",
+    "loadingProducts": "Loading products...",
+    "noProductsFound": "No products found",
+    "tryChangingFilters": "Try changing your filters or search keywords.",
+    "previous": "Previous",
+    "next": "Next",
+    "default": "Default",
+    "sortBy": "Sort by",
+    "viewMore": "View More",
+    "viewLess": "View Less",
+    "all": "All",
+    "cancel": "Cancel",
+    "sendMessage": "Send message",
+    "leaveReview": "Leave a review",
+    "submitReview": "Submit review",
+    "submitting": "Submitting...",
+    "item": "item",
+    "items": "items",
+    "reviews": "Reviews",
+    "relatedProducts": "Related Products",
+    "shoppingCart": "Shopping Cart",
+    "orderSummary": "Order Summary",
+    "startShopping": "Start Shopping"
   },
   "navigation": {
     "logoAlt": "Cyber logo",
@@ -20,10 +46,14 @@
     "faqs": "FAQs"
   },
   "footer": {
-    "description": "We are a residential interior design firm located in Portland. Our boutique-studio offers more than",
+    "description": "We are a retail brand focused on a clean, dependable shopping experience with a carefully curated product selection.",
     "links": "Links",
     "faqs": "FAQs",
     "copyright": "© 2026 Cyber. All rights reserved."
+  },
+  "metadata": {
+    "title": "Cyber",
+    "description": "Cyber e-commerce storefront"
   },
   "home": {
     "hero": {
@@ -96,7 +126,7 @@
     "sale": {
       "titlePrefix": "Big Summer",
       "titleEmphasis": "Sale",
-      "description": "Commodo fames vitae vitae leo mauris in. Eu consequat."
+      "description": "Fresh deals on the season's biggest picks."
     }
   },
   "products": {
@@ -107,11 +137,309 @@
       "removedFromWishlist": "Removed from wishlist",
       "addedToCart": "Added to cart",
       "removedFromCart": "Removed from cart"
+    },
+    "detail": {
+      "selectAllOptions": "Please select all options first.",
+      "addToWishlist": "Add to Wishlist",
+      "removeFromWishlist": "Remove from Wishlist",
+      "addToCart": "Add to Cart",
+      "detailsTitle": "Details",
+      "viewMore": "View More",
+      "viewLess": "View Less",
+      "reviewsTitle": "Reviews",
+      "relatedTitle": "Related Products",
+      "reviewSummary": "of {count} reviews",
+      "noReviews": "No reviews have been posted yet.",
+      "ratingLabels": {
+        "poor": "Poor",
+        "belowAverage": "Below Average",
+        "average": "Average",
+        "good": "Good",
+        "excellent": "Excellent"
+      },
+      "reviewForm": {
+        "trigger": "Leave a review",
+        "title": "Share your thoughts",
+        "description": "Tell us your name, rating, and what you think about this product.",
+        "nameLabel": "Name",
+        "namePlaceholder": "Your name",
+        "ratingLabel": "Rate",
+        "ratingDescription": "Choose a rating from 1 to 5.",
+        "commentLabel": "Comment",
+        "commentPlaceholder": "What stood out to you?",
+        "cancel": "Cancel",
+        "submit": "Submit review",
+        "submitting": "Submitting...",
+        "success": "Your review has been posted.",
+        "error": "We could not post your review right now.",
+        "errors": {
+          "nameMin": "Please enter your name.",
+          "nameMax": "Name must be 50 characters or less.",
+          "ratingWhole": "Rating must be a whole number.",
+          "ratingMin": "Please choose a rating.",
+          "ratingMax": "Rating must be between 1 and 5.",
+          "commentMin": "Please add at least 10 characters.",
+          "commentMax": "Comment must be 500 characters or less."
+        }
+      },
+      "meta": {
+        "deliveryTitle": "Free Delivery",
+        "deliveryDescription": "1-2 day",
+        "stockTitle": "In Stock",
+        "stockDescription": "Today",
+        "guaranteeTitle": "Guaranteed",
+        "guaranteeDescription": "1 year"
+      }
     }
   },
   "shop": {
     "title": "Shop",
-    "description": "Browse the latest products and discover what fits your style."
+    "description": "Browse the latest products and discover what fits your style.",
+    "breadcrumb": {
+      "home": "Home",
+      "shop": "Shop",
+      "all": "All"
+    },
+    "sidebar": {
+      "categories": "Categories",
+      "price": "Price",
+      "apply": "Apply",
+      "clear": "Clear"
+    },
+    "products": {
+      "title": "Products",
+      "loading": "Loading products...",
+      "emptyTitle": "No products found",
+      "emptyDescription": "Try changing your filters or search keywords.",
+      "sort": {
+        "default": "Default",
+        "az": "Name (A → Z)",
+        "za": "Name (Z → A)",
+        "priceAsc": "Price (Low → High)",
+        "priceDesc": "Price (High → Low)",
+        "ratingAsc": "Rating (1 → 5)",
+        "ratingDesc": "Rating (5 → 1)",
+        "newest": "Newest",
+        "oldest": "Oldest"
+      },
+      "pagination": {
+        "previous": "Previous",
+        "next": "Next"
+      }
+    }
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty.",
+    "continueShopping": "Start Shopping",
+    "summary": {
+      "title": "Order Summary",
+      "discountCode": "Discount code / Promo code",
+      "codePlaceholder": "Code",
+      "bonusCard": "Your bonus card number",
+      "cardPlaceholder": "Enter card number",
+      "apply": "Apply",
+      "subtotal": "Subtotal",
+      "estimatedTax": "Estimated Tax",
+      "shippingHandling": "Estimated shipping & Handling",
+      "total": "Total",
+      "checkout": "Checkout"
+    }
+  },
+  "wishlist": {
+    "title": "Wishlist",
+    "empty": "Your wishlist is empty.",
+    "startShopping": "Start Shopping",
+    "item": "item",
+    "items": "items"
+  },
+  "about": {
+    "hero": {
+      "eyebrow": "About us",
+      "title": "We build a better way to shop online.",
+      "description": "Our store brings together quality products, dependable service, and a clean shopping experience designed for modern customers.",
+      "cards": {
+        "curated": {
+          "title": "Curated selection",
+          "description": "Products chosen to keep the catalog focused and useful."
+        },
+        "customers": {
+          "title": "Built for customers",
+          "description": "Every decision starts with clarity, trust, and convenience."
+        },
+        "fulfillment": {
+          "title": "Reliable fulfillment",
+          "description": "Orders are handled with a practical and consistent process."
+        },
+        "improving": {
+          "title": "Always improving",
+          "description": "We keep refining the experience based on real customer needs."
+        }
+      }
+    },
+    "story": {
+      "eyebrow": "Our story",
+      "title": "A store created around simplicity and trust.",
+      "description": "We started with a straightforward idea: make it easier to find products that feel reliable, look good, and arrive on time.",
+      "paragraphs": [
+        "Our store was built for people who want a clean, efficient shopping experience without unnecessary noise. From the first product selection to checkout, every step is designed to feel clear and easy to use.",
+        "We focus on quality, practical value, and dependable service. That means keeping the catalog curated, making navigation simple, and supporting customers with responsive communication whenever questions come up.",
+        "As the store grows, we continue to refine the experience with the same mindset: thoughtful products, professional presentation, and a smooth path from browsing to delivery."
+      ]
+    },
+    "benefits": {
+      "eyebrow": "Why choose us",
+      "title": "Practical benefits that support the full shopping journey.",
+      "description": "We keep the experience focused on the details that matter most, from product quality to post-purchase support.",
+      "items": {
+        "quality": {
+          "title": "High Quality Products",
+          "description": "Carefully selected products that balance durability, performance, and everyday value."
+        },
+        "shipping": {
+          "title": "Fast Shipping",
+          "description": "Efficient fulfillment and delivery options designed to get your order moving quickly."
+        },
+        "payments": {
+          "title": "Secure Payments",
+          "description": "A streamlined checkout experience with reliable payment protection for peace of mind."
+        },
+        "support": {
+          "title": "Customer Support",
+          "description": "Helpful support before and after your purchase whenever you need a quick answer."
+        }
+      }
+    },
+    "stats": {
+      "eyebrow": "Statistics",
+      "title": "A quick look at the numbers behind the store.",
+      "description": "These simple metrics help show the scale of the business and the consistency we aim to deliver.",
+      "items": {
+        "customers": {
+          "value": "12K+",
+          "label": "Happy Customers",
+          "description": "Customers who trust us for their everyday shopping needs."
+        },
+        "products": {
+          "value": "500+",
+          "label": "Products",
+          "description": "A growing catalog of essentials and trending items."
+        },
+        "orders": {
+          "value": "18K+",
+          "label": "Orders",
+          "description": "Orders processed with a focus on consistency and care."
+        },
+        "experience": {
+          "value": "5+",
+          "label": "Years of Experience",
+          "description": "A foundation built on learning, service, and improvement."
+        }
+      }
+    },
+    "cta": {
+      "eyebrow": "Ready to shop?",
+      "title": "Explore the catalog and find what fits your routine.",
+      "description": "Browse the latest products, compare options, and discover a simpler way to shop online.",
+      "button": "Shop now"
+    }
+  },
+  "contact": {
+    "hero": {
+      "eyebrow": "Contact",
+      "title": "Let's talk about your next order.",
+      "description": "Reach out with questions about products, shipping, returns, or anything else and our team will get back to you as soon as possible."
+    },
+    "info": {
+      "addressTitle": "Address",
+      "addressDescription": "123 Market Street, Downtown, Cairo, Egypt",
+      "phoneTitle": "Phone",
+      "phoneDescription": "+20 100 000 0000",
+      "emailTitle": "Email",
+      "emailDescription": "support@example.com",
+      "hoursTitle": "Working Hours",
+      "hoursDescription": "Mon - Sat, 9:00 AM - 6:00 PM"
+    },
+    "form": {
+      "eyebrow": "Send a message",
+      "title": "We're ready to help.",
+      "description": "This form is structured for validation and future backend integration, while staying clean and easy to maintain.",
+      "labels": {
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your name",
+        "email": "you@example.com",
+        "subject": "How can we help?",
+        "message": "Tell us a bit more about your request."
+      },
+      "success": "Your message is ready to be connected to a backend when you're ready.",
+      "validation": {
+        "nameRequired": "Name is required.",
+        "emailRequired": "Email is required.",
+        "emailInvalid": "Enter a valid email address.",
+        "subjectRequired": "Subject is required.",
+        "messageRequired": "Message is required.",
+        "messageDetail": "Please include a little more detail."
+      },
+      "submit": "Send message"
+    },
+    "map": {
+      "eyebrow": "Map placeholder",
+      "title": "Google Map preview area",
+      "description": "This space is reserved for a future embedded map, store locator, or delivery zone view."
+    },
+    "quickHelp": {
+      "eyebrow": "Need a faster answer?",
+      "items": {
+        "sales": {
+          "title": "Sales inquiries",
+          "description": "Product questions and bulk orders."
+        },
+        "account": {
+          "title": "Account help",
+          "description": "Checkout, returns, and order support."
+        },
+        "shipping": {
+          "title": "Shipping updates",
+          "description": "Delivery status and fulfillment questions."
+        },
+        "support": {
+          "title": "Live support",
+          "description": "Reach us during the working hours listed above."
+        }
+      }
+    },
+    "faq": {
+      "eyebrow": "FAQ",
+      "title": "Helpful answers to common questions.",
+      "description": "If you still need help after reading these, send us a message and we'll take it from there.",
+      "items": {
+        "shipping": {
+          "question": "How long does shipping usually take?",
+          "answer": "Shipping times depend on location and product availability, but we always aim to process orders quickly and keep customers informed."
+        },
+        "returns": {
+          "question": "Do you accept returns?",
+          "answer": "Yes. Return options depend on the product and condition, and our support team can guide you through the process."
+        },
+        "payment": {
+          "question": "What payment methods do you support?",
+          "answer": "The store is designed to support secure checkout flows with common payment options when the store is connected to a payment provider."
+        },
+        "support": {
+          "question": "How can I contact customer support?",
+          "answer": "You can use the contact form below or reach us directly through phone or email during working hours."
+        },
+        "order": {
+          "question": "Can I change my order after placing it?",
+          "answer": "If your order has not entered fulfillment yet, our team can help review changes as soon as possible."
+        }
+      }
+    }
   },
   "productPage": {
     "title": "Product details",

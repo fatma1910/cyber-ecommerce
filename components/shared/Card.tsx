@@ -30,18 +30,18 @@ const Card = ( product:Product ) => {
 };
 
   return (
-    <div className='bg-[#F6F6F6] py-6 px-4 rounded-[8px] h-full justify-between flex flex-col items-center gap-2 relative'>
+    <div className='relative flex h-full flex-col items-center justify-between gap-2 rounded-[8px] bg-[#F6F6F6] px-4 py-6'>
         {product.salePrice &&
 
-            <p className='text-sm  absolute left-2 bg-red-500 text-white py-0.5 px-2 rounded-full top-2'>{t("sale")}</p>
+            <p className='absolute start-2 top-2 rounded-full bg-red-500 px-2 py-0.5 text-sm text-white'>{t("sale")}</p>
         }
-        <button onClick={handleWishlistToggle} className='absolute top-5 right-5'>
+        <button onClick={handleWishlistToggle} className='absolute end-5 top-5'>
             {isWishlisted ? <IoHeartSharp size={32} className=' text-red-500 text-xl cursor-pointer' /> : <IoHeartOutline size={32} className=' text-gray-400 text-xl cursor-pointer' />}
         </button>
-        <div className='flex flex-col items-center justify-between  gap-4 pt-6 '>
-            <Image loading="eager" src={product.images[0].url} alt={product.name} width={160} height={160} className='object-contain h-40 w-40' />
+        <div className='flex flex-col items-center justify-between gap-4 pt-6'>
+            <Image loading="eager" src={product.images[0].url} alt={product.name} width={160} height={160} className='h-40 w-40 object-contain' />
             <h2 className='text-base font-medium'>{product.name}</h2>
-            <div className='flex items-center gap-2'>
+            <div className='flex flex-wrap items-center justify-center gap-2'>
             <p className='text-2xl font-semibold'>${product.price}</p>
             {product.salePrice && <p className='text-sm line-through text-gray-500'>${product.salePrice}</p>}
             </div>

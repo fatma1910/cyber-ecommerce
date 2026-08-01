@@ -8,40 +8,40 @@ const Footer = () => {
   const nav = useTranslations("navigation");
 
   return (
-    <div>
-      <div className="bg-primary text-white padding flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
-        <div className="flex flex-col gap-4 max-w-sm text-center lg:text-left">
+    <footer>
+      <div className="bg-primary text-white padding flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-0">
+        <div className="flex max-w-sm flex-col gap-4 text-start">
           <Image
             src="/icons/LogoWhite.svg"
             alt={nav("logoAlt")}
             width={80}
             height={40}
-            className="w-20 h-10 sm:w-25 sm:h-12 mx-auto lg:mx-0"
+            className="h-10 w-20 shrink-0 sm:h-12 sm:w-25"
           />
           <p className="text-sm font-medium">{t("description")}</p>
         </div>
-        <div className="text-center lg:text-left">
-          <h3 className="text-lg font-medium mb-2">{t("links")}</h3>
-          <div>
+        <div className="text-start">
+          <h3 className="mb-2 text-lg font-medium">{t("links")}</h3>
+          <div className="flex flex-col gap-2">
             {headerLinks.map((link) => (
               <Link
                 key={link.key}
                 href={link.href}
-                className="text-sm text-[#CFCFCF] hover:text-white transition duration-150 block mb-2"
+                className="text-sm text-[#CFCFCF] transition duration-150 hover:text-white"
               >
                 {nav(link.key)}
               </Link>
             ))}
           </div>
         </div>
-        <div className="text-center lg:text-left">
-          <h3 className="text-lg font-medium mb-2">{t("faqs")}</h3>
-          <div>
+        <div className="text-start">
+          <h3 className="mb-2 text-lg font-medium">{t("faqs")}</h3>
+          <div className="flex flex-col gap-2">
             {footerLinks.map((link) => (
               <Link
                 key={link.key}
                 href={link.href}
-                className="text-sm text-[#CFCFCF] hover:text-white transition duration-150 block mb-2"
+                className="text-sm text-[#CFCFCF] transition duration-150 hover:text-white"
               >
                 {nav(link.key)}
               </Link>
@@ -49,10 +49,10 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <p className="border-t py-2 sm:py-4 flex items-center justify-center w-full bg-primary text-[#CFCFCF] text-sm sm:text-base">
+      <p className="border-t bg-primary py-2 text-center text-sm text-[#CFCFCF] sm:py-4 sm:text-base">
         {t("copyright")}
       </p>
-    </div>
+    </footer>
   );
 };
 

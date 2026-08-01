@@ -10,7 +10,7 @@ import SaleSection from "./components/SaleSection";
 
 export default async function Home() {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-clip">
       <Hero />
       <Devices />
       <Categories />

@@ -27,10 +27,23 @@ export async function getProducts({ page = 1, pageSize = 20,q = '',categoryId = 
         if (!res.ok) throw new Error('Failed to fetch products')
         const data = await res.json();
 
-        return data.items;
+        if (Array.isArray(data)) {
+            return {
+                items: data,
+                total: data.length,
+            };
+        }
+
+        return {
+            items: Array.isArray(data?.items) ? data.items : [],
+            total: typeof data?.total === "number" ? data.total : 0,
+        };
     } catch (error) {
         console.error('Failed to load products', error);
-        return [];
+        return {
+            items: [],
+            total: 0,
+        };
     }
 }
 

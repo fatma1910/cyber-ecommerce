@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { usePathname } from "@/i18n/navigation";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useTranslations } from "next-intl";
 
 type SidebarProps = {
   categories: CategoryDetails[];
@@ -21,11 +22,13 @@ type SidebarProps = {
 
 export default function Sidebar({
   categories,
-  maxPrice = 1000,
+  maxPrice = 10000,
 }: SidebarProps) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const t = useTranslations("shop.sidebar");
+  const common = useTranslations("common");
 
   const categoryId = searchParams.get("categoryId");
   const subcategoryId = searchParams.get("subcategoryId");
@@ -112,7 +115,7 @@ export default function Sidebar({
   };
 
   return (
-    <aside className="w-64 space-y-8">
+    <aside className="w-full max-w-full space-y-8 lg:w-64">
       <Accordion
         // type="single"
         value={openCategory}
@@ -125,7 +128,7 @@ export default function Sidebar({
             value={category.id.toString()}
             className="border-b border-gray-200"
           >
-            <AccordionTrigger className="cursor-pointer text-lg font-medium hover:no-underline">
+            <AccordionTrigger className="cursor-pointer text-start text-lg font-medium hover:no-underline">
               {category.name}
             </AccordionTrigger>
 
@@ -148,14 +151,14 @@ export default function Sidebar({
                   htmlFor={`category-${category.id}`}
                   className="cursor-pointer text-sm font-medium"
                 >
-                  All
+                  {common("all")}
                 </label>
               </div>
 
               {category.children?.map((child) => (
                 <div
                   key={child.id}
-                  className="flex items-center gap-2 pl-5"
+                  className="flex items-center gap-2 ps-5"
                 >
                   <Checkbox
                     id={`subcategory-${child.id}`}
@@ -187,7 +190,7 @@ export default function Sidebar({
       {/* Price Filter */}
       <div className="space-y-5 rounded-lg">
         <h3 className="text-lg font-semibold">
-          Price
+          {t("price")}
         </h3>
 
         <Slider
@@ -210,14 +213,14 @@ export default function Sidebar({
             className="flex-1"
             onClick={handleApplyPrice}
           >
-            Apply
+            {common("apply")}
           </Button>
 
           <Button
             variant="outline"
             onClick={handleClearPrice}
           >
-            Clear
+            {common("clear")}
           </Button>
         </div>
       </div>

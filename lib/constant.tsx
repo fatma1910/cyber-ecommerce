@@ -78,19 +78,15 @@ export const  productsSection = [
 
 export const productDetailsGrid = [
   {
+    key: "delivery",
     icon: <CiDeliveryTruck size={24} color="#797979" />,
-    title: "Free Delivery",
-    description: "1-2 day",
   },
   {
+    key: "stock",
     icon: <IoStorefrontOutline size={24} color="#797979" />,
-    title: "In Stock",
-    description: "Today",
   },
   {
+    key: "guarantee",
     icon: <BsPatchCheck size={24} color="#797979" />,
-    title: "Guaranteed",
-    description: "1 year",
   },
 ]
-

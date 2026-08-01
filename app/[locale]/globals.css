@@ -88,6 +88,7 @@
 
 body {
   font-family: var(--font-inter), sans-serif;
+  overflow-x: clip;
 }
 
 .padding {
@@ -166,6 +167,12 @@ body {
 
   } */
 
-  
+  html[dir="rtl"] .rtl-flip {
+    transform: rotate(180deg);
+  }
+
+  html[dir="rtl"] .rtl-text-start {
+    text-align: right;
+  }
 
 }

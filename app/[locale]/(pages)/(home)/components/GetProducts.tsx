@@ -33,13 +33,13 @@ const GetProducts = ({ type }: { type: string }) => {
           categoryId: "",
           type,
           minPrice: 0,
-          maxPrice: 1000,
+          maxPrice: 100077,
           sort: "",
           subcategoryId:''
         });
 
-        cache.current[type] = data;
-        setProducts(data);
+        cache.current[type] = data.items;
+        setProducts(data.items);
       } catch (error) {
         console.error(error);
         setProducts([]);
@@ -53,7 +53,7 @@ const GetProducts = ({ type }: { type: string }) => {
 
   if (loading) {
     return (
-      <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {Array.from({ length: 4 }).map((_, i) => (
           <CardSkeleton key={i} />
         ))}
@@ -62,7 +62,7 @@ const GetProducts = ({ type }: { type: string }) => {
   }
 
   return (
-    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
+    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
       {products.map((product) => (
         <Card key={product.id} {...product} />
       ))}

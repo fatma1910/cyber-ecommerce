@@ -20,7 +20,8 @@ const ProductDetails = ({ product }: { product: Product }) => {
   const { wishlist, toggleWishlist } = useWishlistStore();
   const { addToCart } = useCartStore();
 
-  const t = useTranslations("products.card");
+  const t = useTranslations("products.detail");
+  const cardT = useTranslations("products.card");
 
   const isWishlisted = wishlist.some(
     (item) => item.id === product.id
@@ -30,9 +31,9 @@ const ProductDetails = ({ product }: { product: Product }) => {
     toggleWishlist(product);
 
     if (isWishlisted) {
-      toast.error(t("removedFromWishlist"));
+      toast.error(cardT("removedFromWishlist"));
     } else {
-      toast.success(t("addedToWishlist"));
+      toast.success(cardT("addedToWishlist"));
     }
   };
 
@@ -53,61 +54,58 @@ const ProductDetails = ({ product }: { product: Product }) => {
       );
 
       if (!allSelected) {
-        toast.error("Please select all options first.");
+        toast.error(t("selectAllOptions"));
         return;
       }
     }
 
     addToCart(product, selectedVariants);
 
-    toast.success(t("addedToCart"));
+    toast.success(cardT("addedToCart"));
   };
 
   return (
-    <section className="padding flex flex-col items-center gap-10 md:flex-row md:gap-4">
-      {/* Images */}
-      <div className="flex flex-1 gap-12">
-        <div className="flex flex-col gap-5">
+    <section className="padding flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8">
+      <div className="flex min-w-0 flex-1 flex-col gap-4 sm:gap-6 lg:flex-row lg:gap-12">
+        <div className="grid grid-cols-4 gap-3 lg:flex lg:flex-col">
           {product.images.map((image, index) => (
             <button
               key={index}
+              type="button"
               onClick={() => setActive(image.url)}
-            
+              className="overflow-hidden rounded-xl"
             >
               <Image
                 src={image.url}
                 alt={product.name}
                 width={80}
                 height={80}
-                className={`h-20 w-20 object-contain transition cursor-pointer
-                  ${
-                    active === image.url
-                      ? "opacity-100"
-                      : "opacity-40 hover:opacity-100"
-                  }`}
+                className={`h-16 w-full object-contain transition sm:h-20 sm:w-20 ${
+                  active === image.url
+                    ? "opacity-100"
+                    : "opacity-40 hover:opacity-100"
+                }`}
               />
             </button>
           ))}
         </div>
-        <div>
-        <Image
-          src={active}
-          alt={product.name}
-          width={400}
-          height={516}
-          className="h-[516px] w-full object-contain"
-        />
+        <div className="flex min-w-0 flex-1 justify-center">
+          <Image
+            src={active}
+            alt={product.name}
+            width={400}
+            height={516}
+            className="h-auto w-full max-w-[420px] object-contain sm:max-w-[520px] lg:h-[516px] lg:max-w-none"
+          />
         </div>
       </div>
-      
 
-      {/* Details */}
-      <div className="flex flex-1 flex-col gap-5">
-        <h1 className="text-4xl font-bold">
+      <div className="flex min-w-0 flex-1 flex-col gap-5">
+        <h1 className="text-3xl font-bold sm:text-4xl">
           {product.name}
         </h1>
 
-        <div className="flex gap-4 items-center">
+        <div className="flex flex-wrap items-center gap-4">
           <p className="text-2xl">
             ${product.salePrice}
           </p>
@@ -161,34 +159,34 @@ const ProductDetails = ({ product }: { product: Product }) => {
           {product.description}
         </p>
 
-        <div className="flex gap-4">
+        <div className="flex flex-col gap-4 sm:flex-row">
           <Button
             variant="outline"
-            className="w-1/2 py-6 cursor-pointer"
+            className="w-full py-6 cursor-pointer sm:w-1/2"
             onClick={handleWishlistToggle}
           >
             {isWishlisted
-              ? "Remove from Wishlist"
-              : "Add to Wishlist"}
+              ? t("removeFromWishlist")
+              : t("addToWishlist")}
           </Button>
 
           <Button
-            className="w-1/2 py-6 cursor-pointer"
+            className="w-full py-6 cursor-pointer sm:w-1/2"
             onClick={handleAddToCart}
           >
-            Add to Cart
+            {t("addToCart")}
           </Button>
         </div>
-        <div className="flex item-center gap-6 justify-between ">
+        <div className="grid gap-4 sm:grid-cols-3">
             {productDetailsGrid.map((item, index) => (
                 <div key={index} className="flex items-center gap-2">
-                    <div className="p-[16px] rounded-[11px] bg-[#F6F6F6] ">
+                    <div className="rounded-[11px] bg-[#F6F6F6] p-4">
                         {item.icon}
                     </div>
                     
                     <div className="flex flex-col">
-                        <p className="text-sm font-medium text-gray-500">{item.title}</p>
-                        <p className="text-sm ">{item.description}</p>
+                        <p className="text-sm font-medium text-gray-500">{t(`meta.${item.key}Title`)}</p>
+                        <p className="text-sm ">{t(`meta.${item.key}Description`)}</p>
                     </div>
 
                 </div>

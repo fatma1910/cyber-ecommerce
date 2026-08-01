@@ -51,7 +51,7 @@ const HomeCard = ({
         </h1>
         <p className="font-medium text-[#909090] text-sm">{desc}</p>
       </div>
-      <Link href="/shop" className="w-full ">
+      <Link href="/shop" className="w-full">
         <Button variant={butVariant} size={"lg"} className="w-full sm:w-1/2">
           {t("shopNow")}
         </Button>

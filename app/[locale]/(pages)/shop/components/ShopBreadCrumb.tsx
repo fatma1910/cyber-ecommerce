@@ -13,27 +13,29 @@ import {
 
 import { useSearchParams } from "next/navigation";
 import { CategoryDetails } from "@/lib/types";
+import { useTranslations } from "next-intl";
 
 
 export function ShopBreadcrumb({ categories}: { categories?:CategoryDetails[] }) {
   const searchParams = useSearchParams();
+  const t = useTranslations("shop.breadcrumb");
 
   const categoryId = searchParams.get("category");
   const category = categories?.find((cat) => cat.id.toString() === categoryId)?.name;
 
   return (
     <Breadcrumb>
-      <BreadcrumbList>
+      <BreadcrumbList className="overflow-x-auto pb-1">
         <BreadcrumbItem>
-          <BreadcrumbLink render={<Link href="/">Home</Link>} />
+          <BreadcrumbLink render={<Link href="/">{t("home")}</Link>} />
         </BreadcrumbItem>
         <BreadcrumbSeparator />
             <BreadcrumbItem>
-          <BreadcrumbLink render={<Link href="/shop">Shop</Link>} />  
+          <BreadcrumbLink render={<Link href="/shop">{t("shop")}</Link>} />  
             </BreadcrumbItem>
         <BreadcrumbSeparator />
         <BreadcrumbItem>
-          <BreadcrumbPage>{category || "All"}</BreadcrumbPage>
+          <BreadcrumbPage>{category || t("all")}</BreadcrumbPage>
         </BreadcrumbItem>
       </BreadcrumbList>
     </Breadcrumb>

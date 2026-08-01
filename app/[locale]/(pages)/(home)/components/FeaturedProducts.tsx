@@ -17,10 +17,10 @@ const FeaturedProducts = () => {
 
   return (
     <section className='padding'>
-        <div className='mb-4 flex flex-wrap gap-x-6 gap-y-2 sm:gap-8'>
+        <div className='mb-4 flex gap-x-6 gap-y-2 overflow-x-auto pb-1 sm:gap-8'>
             {headerLinks.map((link) => {
                 return (
-                    <button key={link.key} onClick={() => setCat(link.href)} className={`pb-1 text-sm font-medium text-gray-400 transition duration-150 hover:text-primary sm:text-base whitespace-nowrap cursor-pointer ${cat === link.href ? " text-primary  underline" : ""}`}>
+                    <button key={link.key} onClick={() => setCat(link.href)} className={`cursor-pointer whitespace-nowrap pb-1 text-sm font-medium text-gray-400 transition duration-150 hover:text-primary sm:text-base ${cat === link.href ? " text-primary underline" : ""}`}>
                         {t(link.key)}
                     </button>
                 )

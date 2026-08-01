@@ -8,27 +8,27 @@ const Hero = async () => {
   const common = await getTranslations("common");
 
   return (
-    <section className="min-h-screen padding-x bg-[#211C24] flex flex-col gap-11 xl:flex-row items-center relative overflow-hidden">
-      <div className="  bg-[#211C24] mt-10 sm:mt-16 lg:mt-20 xl:mt-0 flex flex-col gap-6 max-w-lg text-center xl:text-left">
-        <p className="font-semibold text-2xl text-[#ffffff89] ">{t("eyebrow")}</p>
-        <h1 className="text-6xl sm:text-[96px] text-white font-thin tracking-tight">
+    <section className="relative isolate overflow-hidden bg-[#211C24] padding-x py-12 sm:py-16 xl:flex xl:min-h-screen xl:flex-row xl:items-center xl:gap-11 xl:py-0">
+      <div className="relative z-10 mx-auto flex max-w-lg flex-col gap-6 text-center xl:mx-0 xl:text-start">
+        <p className="text-2xl font-semibold text-[#ffffff89]">{t("eyebrow")}</p>
+        <h1 className="text-4xl font-thin tracking-tight text-white sm:text-6xl lg:text-[96px]">
           {t("titlePrefix")} <span className="font-semibold">{t("titleEmphasis")}</span>
         </h1>
-        <p className="text-[#909090] font-medium text-lg mb-6">{t("description")}</p>
-        <Link href="/shop" className="">
+        <p className="mb-2 text-base font-medium text-[#909090] sm:text-lg">{t("description")}</p>
+        <Link href="/shop" className="inline-flex justify-center xl:justify-start">
           <Button variant={"secondary"} size={"lg"}>
             {common("shopNow")}
           </Button>
         </Link>
       </div>
-      <div>
+      <div className="relative mt-4 flex justify-center xl:mt-0 xl:flex-1 xl:justify-end">
         <Image
           loading="eager"
           src="/home/hero.png"
           alt={t("imageAlt")}
           width={406}
           height={600}
-          className="absolute -translate-x-1/2 xl:right-28 xl:top-1/6 "
+          className="h-auto w-[min(100%,340px)] sm:w-[min(100%,406px)] xl:absolute xl:end-28 xl:top-1/2 xl:w-[406px] xl:-translate-y-1/2"
         />
       </div>
     </section>

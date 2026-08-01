@@ -1,17 +1,33 @@
 import { z } from "zod"
 
-export const reviewFormSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(2, "Please enter your name.")
-    .max(50, "Name must be 50 characters or less."),
-  rating: z.number().int("Rating must be a whole number.").min(1, "Please choose a rating.").max(5, "Rating must be between 1 and 5."),
-  comment: z
-    .string()
-    .trim()
-    .min(10, "Please add at least 10 characters.")
-    .max(500, "Comment must be 500 characters or less."),
-})
+export type ReviewFormMessages = {
+  nameMin: string
+  nameMax: string
+  ratingWhole: string
+  ratingMin: string
+  ratingMax: string
+  commentMin: string
+  commentMax: string
+}
 
-export type ReviewFormValues = z.infer<typeof reviewFormSchema>
+export function createReviewFormSchema(messages: ReviewFormMessages) {
+  return z.object({
+    name: z
+      .string()
+      .trim()
+      .min(2, messages.nameMin)
+      .max(50, messages.nameMax),
+    rating: z
+      .number()
+      .int(messages.ratingWhole)
+      .min(1, messages.ratingMin)
+      .max(5, messages.ratingMax),
+    comment: z
+      .string()
+      .trim()
+      .min(10, messages.commentMin)
+      .max(500, messages.commentMax),
+  })
+}
+
+export type ReviewFormValues = z.infer<ReturnType<typeof createReviewFormSchema>>

@@ -5,6 +5,7 @@ import { ProductReviews, Review } from "@/lib/types";
 import { ChevronDown } from "lucide-react";
 import { useLayoutEffect, useRef, useState } from "react";
 import ReviewCard from "./ReviewCard";
+import { useTranslations } from "next-intl";
 
 const REVIEWS_STEP = 3;
 
@@ -12,6 +13,7 @@ const AllReviews = ({ reviews }: { reviews: ProductReviews }) => {
   const [visibleCount, setVisibleCount] = useState(REVIEWS_STEP);
   const [rowHeights, setRowHeights] = useState<number[]>([]);
   const rowRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const t = useTranslations("products.detail");
 
   const totalReviews = reviews.reviews.length;
   const hasReviews = totalReviews > 0;
@@ -26,7 +28,7 @@ const AllReviews = ({ reviews }: { reviews: ProductReviews }) => {
   if (!hasReviews) {
     return (
       <div className="rounded-[10px] border border-dashed border-gray-200 bg-[#FAFAFA] px-6 py-10 text-center text-sm text-gray-500">
-        No reviews have been posted yet.
+        {t("noReviews")}
       </div>
     );
   }
@@ -79,7 +81,7 @@ const AllReviews = ({ reviews }: { reviews: ProductReviews }) => {
               );
             }}
           >
-            {expanded ? "View Less" : "View More"}
+            {expanded ? t("viewLess") : t("viewMore")}
             <ChevronDown
               className={`h-4 w-4 transition-transform duration-300 ${
                 expanded ? "rotate-180" : ""

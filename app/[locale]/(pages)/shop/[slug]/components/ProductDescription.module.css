@@ -69,6 +69,9 @@
 
 .body :global(table) {
   width: 100%;
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
   border-collapse: collapse;
   font-size: 0.875rem;
 }
@@ -87,21 +90,20 @@
 }
 
 .body :global(.spec-table td:first-child) {
-  padding-right: 24px;
+  padding-inline-end: 24px;
   color: #3f3f46;
 }
 
 .body :global(.spec-table td:last-child) {
   color: #09090b;
   font-weight: 500;
-  text-align: right;
+  text-align: end;
 }
 
 .fade {
   pointer-events: none;
   position: absolute;
-  left: 0;
-  right: 0;
+  inset-inline: 0;
   bottom: 64px;
   height: 96px;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0), #fff);

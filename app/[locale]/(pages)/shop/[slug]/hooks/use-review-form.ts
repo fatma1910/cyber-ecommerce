@@ -4,11 +4,12 @@ import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { toast } from "sonner"
+import { useTranslations } from "next-intl"
 
 import { postReview } from "@/lib/data"
 import { Review } from "@/lib/types"
 import {
-  reviewFormSchema,
+  createReviewFormSchema,
   type ReviewFormValues,
 } from "../validation/review-form-schema"
 
@@ -56,6 +57,17 @@ export function useReviewForm({
   onSuccess,
 }: UseReviewFormParams) {
   const [open, setOpen] = useState(false)
+  const t = useTranslations("products.detail.reviewForm")
+
+  const reviewFormSchema = createReviewFormSchema({
+    nameMin: t("errors.nameMin"),
+    nameMax: t("errors.nameMax"),
+    ratingWhole: t("errors.ratingWhole"),
+    ratingMin: t("errors.ratingMin"),
+    ratingMax: t("errors.ratingMax"),
+    commentMin: t("errors.commentMin"),
+    commentMax: t("errors.commentMax"),
+  })
 
   const form = useForm<ReviewFormValues>({
     resolver: zodResolver(reviewFormSchema),
@@ -68,12 +80,12 @@ export function useReviewForm({
       const review = normalizeReview(response, values)
 
       onSuccess(review)
-      toast.success("Your review has been posted.")
+      toast.success(t("success"))
 
       form.reset(defaultValues)
       setOpen(false)
     } catch {
-      toast.error("We could not post your review right now.")
+      toast.error(t("error"))
     }
   })
 

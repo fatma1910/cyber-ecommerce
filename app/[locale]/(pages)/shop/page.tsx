@@ -15,7 +15,7 @@ const page =  async() => {
     <section className="padding space-y-12">
       <ShopBreadcrumb categories={categories}  />
       <div className="grid grid-cols-1 gap-8 lg:grid-cols-[300px_1fr]">
-       <Sidebar categories={categories} maxPrice={1000} />
+       <Sidebar categories={categories} maxPrice={10000} />
         
          
           <div>

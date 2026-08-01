@@ -11,13 +11,13 @@ const DiscountSection = async () => {
     q: "",
     categoryId: "",
     type: "",
-    maxPrice:1000,
+    maxPrice:10000,
     minPrice:0,
     sort:'',
     subcategoryId:''
   });
 
-  const discountedProducts = data.filter(
+  const discountedProducts = data.items.filter(
     (product: Product) =>
       product.salePrice && product.salePrice < product.price,
   );
@@ -27,7 +27,7 @@ const DiscountSection = async () => {
       <h4 className="mb-6 text-2xl font-medium sm:mb-7 sm:text-3xl">
         {t("title")}
       </h4>
-      <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
         {discountedProducts.map((product: Product) => (
           <Card key={product.id} {...product} />
         ))}

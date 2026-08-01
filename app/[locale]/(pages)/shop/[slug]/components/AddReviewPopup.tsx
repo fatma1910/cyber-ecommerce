@@ -1,6 +1,7 @@
 "use client"
 
 import { FaRegStar, FaStar } from "react-icons/fa"
+import { useTranslations } from "next-intl"
 
 import { Button } from "@/components/ui/button"
 import {
@@ -38,12 +39,12 @@ type AddReviewPopupProps = {
   }) => void
 }
 
-const ratingLabels = ["Terrible", "Poor", "Okay", "Good", "Excellent"]
-
 export default function AddReviewPopup({
   productSlug,
   onReviewCreated,
 }: AddReviewPopupProps) {
+  const t = useTranslations("products.detail.reviewForm")
+  const detail = useTranslations("products.detail")
   const { form, open, setOpen, submitReview, isSubmitting } = useReviewForm({
     productSlug,
     onSuccess: onReviewCreated,
@@ -58,28 +59,26 @@ export default function AddReviewPopup({
         render={
           <Button
             variant="outline"
-            className="w-full justify-start rounded-[7px] border border-[#CECECE] py-6 text-left text-muted-foreground"
+            className="w-full justify-start rounded-[7px] border border-[#CECECE] py-6 text-start text-muted-foreground"
           >
-            Leave a review
+            {t("trigger")}
           </Button>
         }
       />
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Share your thoughts</DialogTitle>
-          <DialogDescription>
-            Tell us your name, rating, and what you think about this product.
-          </DialogDescription>
+          <DialogTitle>{t("title")}</DialogTitle>
+          <DialogDescription>{t("description")}</DialogDescription>
         </DialogHeader>
 
         <form className="space-y-5" onSubmit={submitReview}>
           <FieldSet className="gap-5">
             <Field>
               <FieldContent className="gap-2">
-                <FieldTitle>Name</FieldTitle>
+                <FieldTitle>{t("nameLabel")}</FieldTitle>
                 <Input
                   autoComplete="name"
-                  placeholder="Your name"
+                  placeholder={t("namePlaceholder")}
                   aria-invalid={!!errors.name}
                   {...form.register("name")}
                 />
@@ -89,8 +88,8 @@ export default function AddReviewPopup({
 
             <Field>
               <FieldContent className="gap-3">
-                <FieldTitle>Rate</FieldTitle>
-                <div className="flex items-center gap-2">
+                <FieldTitle>{t("ratingLabel")}</FieldTitle>
+                <div className="flex flex-wrap items-center gap-2">
                   {[1, 2, 3, 4, 5].map((value) => {
                     const active = value <= rating
 
@@ -114,8 +113,8 @@ export default function AddReviewPopup({
                 </div>
                 <FieldDescription>
                   {rating > 0
-                    ? ratingLabels[rating - 1]
-                    : "Choose a rating from 1 to 5."}
+                    ? detail(`ratingLabels.${["poor", "belowAverage", "average", "good", "excellent"][rating - 1]}`)
+                    : t("ratingDescription")}
                 </FieldDescription>
                 <FieldError errors={[errors.rating]} />
               </FieldContent>
@@ -123,9 +122,9 @@ export default function AddReviewPopup({
 
             <Field>
               <FieldContent className="gap-2">
-                <FieldTitle>Comment</FieldTitle>
+                <FieldTitle>{t("commentLabel")}</FieldTitle>
                 <Textarea
-                  placeholder="What stood out to you?"
+                  placeholder={t("commentPlaceholder")}
                   aria-invalid={!!errors.comment}
                   {...form.register("comment")}
                 />
@@ -135,11 +134,11 @@ export default function AddReviewPopup({
           </FieldSet>
 
           <DialogFooter className="pt-2">
-            <DialogClose variant="outline" size="lg" className={'px-6'}>
-              Cancel
+            <DialogClose variant="outline" size="lg" className="px-6">
+              {t("cancel")}
             </DialogClose>
-            <Button type="submit" size="lg" disabled={isSubmitting} className={'px-6 cursor-pointer'}>
-              {isSubmitting ? "Submitting..." : "Submit review"}
+            <Button type="submit" size="lg" disabled={isSubmitting} className="cursor-pointer px-6">
+              {isSubmitting ? t("submitting") : t("submit")}
             </Button>
           </DialogFooter>
         </form>

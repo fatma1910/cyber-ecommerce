@@ -4,11 +4,12 @@ import { Button } from "@/components/ui/button";
 import { Product } from "@/lib/types";
 import { ChevronDown } from "lucide-react";
 import { useMemo, useState } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./ProductDescription.module.css";
 
 function extractTitleAndBody(detailsHtml: string) {
   const titleMatch = detailsHtml.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
-  const title = titleMatch?.[1]?.trim() || "Details";
+  const title = titleMatch?.[1]?.trim() ?? null;
   const bodyHtml = detailsHtml.replace(/<h2[^>]*>[\s\S]*?<\/h2>\s*/i, "");
 
   return { title, bodyHtml };
@@ -16,13 +17,12 @@ function extractTitleAndBody(detailsHtml: string) {
 
 const ProductDescription = ({ product }: { product: Product }) => {
   const [expanded, setExpanded] = useState(false);
+  const t = useTranslations("products.detail");
+  const fallbackTitle = t("detailsTitle");
 
   const detailsHtml = product.detailsHtml ?? "";
 
-  const { title, bodyHtml } = useMemo(
-    () => extractTitleAndBody(detailsHtml),
-    [detailsHtml]
-  );
+  const { title, bodyHtml } = useMemo(() => extractTitleAndBody(detailsHtml), [detailsHtml]);
 
   const canCollapse = detailsHtml.length > 700;
 
@@ -33,7 +33,7 @@ const ProductDescription = ({ product }: { product: Product }) => {
   return (
     <section className={` bg-[#FAFAFA] padding`}>
       <div className={styles.card}>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 className={styles.title}>{title ?? fallbackTitle}</h2>
 
         <div
           className={`${styles.body} ${
@@ -56,10 +56,10 @@ const ProductDescription = ({ product }: { product: Product }) => {
               type="button"
               variant="outline"
               size="lg"
-              className="gap-2 px-8 py-3 z-20 "
+              className="z-20 gap-2 px-8 py-3"
               onClick={() => setExpanded((prev) => !prev)}
             >
-              {expanded ? "View Less" : "View More"}
+              {expanded ? t("viewLess") : t("viewMore")}
               <ChevronDown
                 className={`${styles.toggleIcon} ${
                   expanded ? styles.toggleIconExpanded : ""
