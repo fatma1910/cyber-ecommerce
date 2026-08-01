@@ -1,9 +1,19 @@
-
+import type { Metadata } from "next";
 import { getCategories } from "@/lib/data";
 import { ShopBreadcrumb } from "./components/ShopBreadCrumb";
 import Sidebar from "./components/Sidebar";
 import { CategoryDetails } from "@/lib/types";
 import ProductsSection from "./components/ProductsSection";
+import { getTranslations } from "next-intl/server";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.pages.shop");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 const page =  async() => {
    const categories:CategoryDetails[] = await getCategories({

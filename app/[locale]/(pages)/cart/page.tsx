@@ -1,18 +1,16 @@
-'use client'
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
+import CartClient from "./CartClient";
 
-import { useCartStore } from "@/store/cartStore";
-import CartItems from "./components/CartItems"
-import OrderSummary from "./components/OrderSummary"
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.pages.cart");
 
-
-const Page = () => {
-    const { cartItems } = useCartStore();
-  return (
-    <div className="padding flex flex-col gap-10 lg:flex-row lg:items-start ">
-        <CartItems cartItems={cartItems}   />
-        <OrderSummary />
-    </div>
-  )
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
 }
 
-export default Page
+export default function Page() {
+  return <CartClient />;
+}

@@ -53,7 +53,37 @@
   },
   "metadata": {
     "title": "Cyber",
-    "description": "Cyber e-commerce storefront"
+    "description": "Cyber e-commerce storefront",
+    "pages": {
+      "home": {
+        "title": "Cyber | Home",
+        "description": "Shop featured products, latest deals, and curated tech picks."
+      },
+      "about": {
+        "title": "Cyber | About",
+        "description": "Learn more about Cyber and the shopping experience we build for customers."
+      },
+      "contact": {
+        "title": "Cyber | Contact",
+        "description": "Get in touch with Cyber for support, questions, or order help."
+      },
+      "shop": {
+        "title": "Cyber | Shop",
+        "description": "Browse Cyber's full catalog and filter products by category or price."
+      },
+      "product": {
+        "title": "{name} | Cyber",
+        "description": "{description}"
+      },
+      "cart": {
+        "title": "Cyber | Cart",
+        "description": "Review the items in your cart and continue to checkout."
+      },
+      "wishlist": {
+        "title": "Cyber | Wishlist",
+        "description": "Save products to your wishlist and return when you're ready to shop."
+      }
+    }
   },
   "home": {
     "hero": {

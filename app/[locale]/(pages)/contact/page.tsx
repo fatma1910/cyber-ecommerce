@@ -1,9 +1,20 @@
+import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 import ContactHero from "./components/ContactHero";
 import ContactInfoGrid from "./components/ContactInfoGrid";
 import ContactForm from "./components/ContactForm";
 import ContactMapPlaceholder from "./components/ContactMapPlaceholder";
 import ContactQuickHelp from "./components/ContactQuickHelp";
 import ContactFaq from "./components/ContactFaq";
+
+export async function generateMetadata(): Promise<Metadata> {
+  const t = await getTranslations("metadata.pages.contact");
+
+  return {
+    title: t("title"),
+    description: t("description"),
+  };
+}
 
 export default function ContactPage() {
   return (

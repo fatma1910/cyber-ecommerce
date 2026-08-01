@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import CardSkeleton from "@/components/shared/CardSkeleton";
 import { getProductDetails } from "@/lib/data";
 import { Product } from "@/lib/types";
@@ -16,6 +17,22 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product: Product = await getProductDetails(slug);
+  const t = await getTranslations("metadata.pages.product");
+  const description = product.description?.trim() || product.name;
+
+  return {
+    title: t("title", { name: product.name }),
+    description: t("description", { description }),
+  };
+}
 
 const page = async ({
   params,
