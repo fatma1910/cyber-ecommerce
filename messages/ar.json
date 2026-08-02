@@ -33,7 +33,10 @@
     "relatedProducts": "منتجات ذات صلة",
     "shoppingCart": "عربة التسوق",
     "orderSummary": "ملخص الطلب",
-    "startShopping": "ابدأ التسوق"
+    "startShopping": "ابدأ التسوق",
+    "language": "اللغة",
+    "english": "الإنجليزية",
+    "arabic": "العربية"
   },
   "navigation": {
     "logoAlt": "شعار سايبر",
@@ -78,6 +81,18 @@
       "cart": {
         "title": "سايبر | عربة التسوق",
         "description": "راجع العناصر في عربة التسوق ثم أكمل إلى الدفع."
+      },
+      "checkout": {
+        "title": "سايبر | إتمام الشراء",
+        "description": "أكمل تفاصيل الشحن وقدم طلبك."
+      },
+      "notFound": {
+        "title": "سايبر | الصفحة غير موجودة",
+        "description": "الصفحة التي طلبتها غير موجودة."
+      },
+      "thankYou": {
+        "title": "سايبر | شكراً لك",
+        "description": "تم إرسال طلبك بنجاح."
       },
       "wishlist": {
         "title": "سايبر | المفضلة",
@@ -231,6 +246,8 @@
       "all": "الكل"
     },
     "sidebar": {
+      "title": "الفلاتر",
+      "description": "صف المنتجات حسب الفئة أو السعر.",
       "categories": "الفئات",
       "price": "السعر",
       "apply": "تطبيق",
@@ -274,6 +291,140 @@
       "shippingHandling": "الشحن والمناولة المقدرة",
       "total": "الإجمالي",
       "checkout": "إتمام الشراء"
+    }
+  },
+  "checkout": {
+    "title": "إتمام الشراء",
+    "description": "راجع تفاصيل الشحن وأكّد طلبك.",
+    "empty": {
+      "title": "عربة التسوق فارغة",
+      "description": "أضف بعض المنتجات قبل الانتقال إلى إتمام الشراء."
+    },
+    "contact": {
+      "title": "معلومات التواصل",
+      "description": "سنستخدم هذه البيانات للتواصل معك بخصوص طلبك.",
+      "fullName": "الاسم الكامل",
+      "fullNamePlaceholder": "أدخل اسمك الكامل",
+      "email": "البريد الإلكتروني",
+      "emailPlaceholder": "أدخل عنوان بريدك الإلكتروني",
+      "phone": "رقم الهاتف",
+      "phonePlaceholder": "أدخل رقم هاتفك"
+    },
+    "shipping": {
+      "title": "عنوان الشحن",
+      "description": "أخبرنا أين نُسلم طلبك.",
+      "country": "البلد",
+      "city": "المدينة",
+      "cityPlaceholder": "ابدأ بكتابة اسم المدينة",
+      "cityHelp": "اختر المدينة من القائمة المنسدلة.",
+      "streetAddress": "اسم الشارع",
+      "streetAddressPlaceholder": "اسم الشارع والمنطقة",
+      "buildingNumber": "رقم المبنى",
+      "buildingNumberPlaceholder": "رقم المبنى",
+      "floor": "الطابق",
+      "floorPlaceholder": "اختياري",
+      "apartment": "الشقة",
+      "apartmentPlaceholder": "اختياري",
+      "postalCode": "الرمز البريدي",
+      "postalCodePlaceholder": "اختياري",
+      "additionalNotes": "ملاحظات إضافية",
+      "additionalNotesPlaceholder": "ملاحظات للتسليم أو معالم مميزة أو تعليمات خاصة"
+    },
+    "countries": {
+      "egypt": "مصر"
+    },
+    "cities": {
+      "cairo": "القاهرة",
+      "giza": "الجيزة",
+      "alexandria": "الإسكندرية",
+      "dakahlia": "الدقهلية",
+      "sharqia": "الشرقية",
+      "gharbia": "الغربية",
+      "monufia": "المنوفية",
+      "qalyubia": "القليوبية",
+      "beheira": "البحيرة",
+      "portSaid": "بورسعيد",
+      "suez": "السويس",
+      "ismailia": "الإسماعيلية",
+      "damietta": "دمياط",
+      "fayoum": "الفيوم",
+      "minya": "المنيا",
+      "assiut": "أسيوط",
+      "sohag": "سوهاج",
+      "qena": "قنا",
+      "luxor": "الأقصر",
+      "aswan": "أسوان"
+    },
+    "payment": {
+      "title": "طريقة الدفع",
+      "description": "اختر كيف تريد دفع طلبك.",
+      "comingSoon": "قريبًا",
+      "methods": {
+        "cash": {
+          "title": "الدفع عند الاستلام",
+          "description": "ادفع عند تسليم الطلب."
+        },
+        "card": {
+          "title": "فيزا / بطاقة ائتمان",
+          "description": "سيتم تفعيل الدفع بالبطاقة قريبًا."
+        },
+        "instapay": {
+          "title": "إنستاباي",
+          "description": "سيتم إضافة دعم إنستاباي قريبًا."
+        }
+      }
+    },
+    "summary": {
+      "title": "ملخص الطلب",
+      "description": "راجع العناصر في طلبك قبل إرساله.",
+      "selectedColor": "اللون المختار",
+      "selectedSize": "المقاس المختار",
+      "quantity": "الكمية",
+      "subtotal": "المجموع الفرعي",
+      "shipping": "الشحن",
+      "tax": "الضريبة",
+      "discount": "الخصم",
+      "total": "الإجمالي",
+      "placeOrder": "تقديم الطلب",
+      "notSelected": "غير محدد"
+    },
+    "validation": {
+      "fullNameRequired": "يرجى إدخال الاسم الكامل.",
+      "emailRequired": "يرجى إدخال البريد الإلكتروني.",
+      "emailInvalid": "يرجى إدخال بريد إلكتروني صحيح.",
+      "phoneRequired": "يرجى إدخال رقم الهاتف.",
+      "cityRequired": "يرجى اختيار المدينة.",
+      "cityInvalid": "يرجى اختيار مدينة من القائمة.",
+      "streetAddressRequired": "يرجى إدخال اسم الشارع.",
+      "buildingNumberRequired": "يرجى إدخال رقم المبنى."
+    },
+    "success": "تم تجهيز بيانات طلبك بنجاح."
+  },
+  "thankYou": {
+    "eyebrow": "تم تأكيد الطلب",
+    "title": "شكراً لطلبك!",
+    "description": "تم استلام تفاصيل الدفع، وتم تفريغ عربتك، ونقلك إلى صفحة التأكيد.",
+    "home": "العودة إلى الرئيسية",
+    "note": "يمكن ربط التأكيد وتتبع الطلب لاحقاً."
+  },
+  "notFound": {
+    "eyebrow": "خطأ 404",
+    "title": "الصفحة غير موجودة",
+    "description": "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها.",
+    "home": "الذهاب إلى الرئيسية",
+    "cards": {
+      "home": {
+        "title": "العودة إلى الرئيسية",
+        "description": "ارجع إلى الصفحة الرئيسية وابدأ من جديد."
+      },
+      "shop": {
+        "title": "تابع التسوق",
+        "description": "تصفح الكتالوج واعثر على ما تحتاجه."
+      },
+      "back": {
+        "title": "جرّب مساراً آخر",
+        "description": "استخدم القائمة أو زر التسوق لمتابعة التصفح."
+      }
     }
   },
   "wishlist": {

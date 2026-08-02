@@ -33,7 +33,10 @@
     "relatedProducts": "Related Products",
     "shoppingCart": "Shopping Cart",
     "orderSummary": "Order Summary",
-    "startShopping": "Start Shopping"
+    "startShopping": "Start Shopping",
+    "language": "Language",
+    "english": "English",
+    "arabic": "Arabic"
   },
   "navigation": {
     "logoAlt": "Cyber logo",
@@ -78,6 +81,18 @@
       "cart": {
         "title": "Cyber | Cart",
         "description": "Review the items in your cart and continue to checkout."
+      },
+      "checkout": {
+        "title": "Cyber | Checkout",
+        "description": "Complete your shipping details and place your order."
+      },
+      "notFound": {
+        "title": "Cyber | Page not found",
+        "description": "The page you requested could not be found."
+      },
+      "thankYou": {
+        "title": "Cyber | Thank you",
+        "description": "Your order has been placed successfully."
       },
       "wishlist": {
         "title": "Cyber | Wishlist",
@@ -231,6 +246,8 @@
       "all": "All"
     },
     "sidebar": {
+      "title": "Filters",
+      "description": "Refine products by category and price.",
       "categories": "Categories",
       "price": "Price",
       "apply": "Apply",
@@ -274,6 +291,140 @@
       "shippingHandling": "Estimated shipping & Handling",
       "total": "Total",
       "checkout": "Checkout"
+    }
+  },
+  "checkout": {
+    "title": "Checkout",
+    "description": "Review your shipping details and confirm your order.",
+    "empty": {
+      "title": "Your cart is empty",
+      "description": "Add a few products before heading to checkout."
+    },
+    "contact": {
+      "title": "Contact Information",
+      "description": "We will use these details to contact you about your order.",
+      "fullName": "Full Name",
+      "fullNamePlaceholder": "Enter your full name",
+      "email": "Email",
+      "emailPlaceholder": "Enter your email address",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number"
+    },
+    "shipping": {
+      "title": "Shipping Address",
+      "description": "Tell us where to deliver your order.",
+      "country": "Country",
+      "city": "City",
+      "cityPlaceholder": "Start typing your city",
+      "cityHelp": "Choose a city from the dropdown.",
+      "streetAddress": "Street Address",
+      "streetAddressPlaceholder": "Street name and area",
+      "buildingNumber": "Building Number",
+      "buildingNumberPlaceholder": "Building number",
+      "floor": "Floor",
+      "floorPlaceholder": "Optional",
+      "apartment": "Apartment",
+      "apartmentPlaceholder": "Optional",
+      "postalCode": "Postal Code",
+      "postalCodePlaceholder": "Optional",
+      "additionalNotes": "Additional Notes",
+      "additionalNotesPlaceholder": "Delivery notes, landmarks, or special instructions"
+    },
+    "countries": {
+      "egypt": "Egypt"
+    },
+    "cities": {
+      "cairo": "Cairo",
+      "giza": "Giza",
+      "alexandria": "Alexandria",
+      "dakahlia": "Dakahlia",
+      "sharqia": "Sharqia",
+      "gharbia": "Gharbia",
+      "monufia": "Monufia",
+      "qalyubia": "Qalyubia",
+      "beheira": "Beheira",
+      "portSaid": "Port Said",
+      "suez": "Suez",
+      "ismailia": "Ismailia",
+      "damietta": "Damietta",
+      "fayoum": "Fayoum",
+      "minya": "Minya",
+      "assiut": "Assiut",
+      "sohag": "Sohag",
+      "qena": "Qena",
+      "luxor": "Luxor",
+      "aswan": "Aswan"
+    },
+    "payment": {
+      "title": "Payment Method",
+      "description": "Choose how you'd like to pay for your order.",
+      "comingSoon": "Coming Soon",
+      "methods": {
+        "cash": {
+          "title": "Cash on Delivery",
+          "description": "Pay when your order is delivered."
+        },
+        "card": {
+          "title": "Visa / Credit Card",
+          "description": "Card payments will be enabled soon."
+        },
+        "instapay": {
+          "title": "Instapay",
+          "description": "Instapay support will be added soon."
+        }
+      }
+    },
+    "summary": {
+      "title": "Order Summary",
+      "description": "Review the items in your order before placing it.",
+      "selectedColor": "Selected Color",
+      "selectedSize": "Selected Size",
+      "quantity": "Quantity",
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "discount": "Discount",
+      "total": "Total",
+      "placeOrder": "Place Order",
+      "notSelected": "Not selected"
+    },
+    "validation": {
+      "fullNameRequired": "Please enter your full name.",
+      "emailRequired": "Please enter your email address.",
+      "emailInvalid": "Please enter a valid email address.",
+      "phoneRequired": "Please enter your phone number.",
+      "cityRequired": "Please choose a city.",
+      "cityInvalid": "Please choose a city from the list.",
+      "streetAddressRequired": "Please enter your street address.",
+      "buildingNumberRequired": "Please enter your building number."
+    },
+    "success": "Your checkout details have been prepared successfully."
+  },
+  "thankYou": {
+    "eyebrow": "Order confirmed",
+    "title": "Thanks for your order!",
+    "description": "We’ve received your checkout details, cleared your cart, and sent you to a confirmation screen.",
+    "home": "Back to home",
+    "note": "A confirmation and tracking flow can be connected later."
+  },
+  "notFound": {
+    "eyebrow": "404 error",
+    "title": "Page not found",
+    "description": "The page you’re looking for doesn’t exist or may have been moved.",
+    "home": "Go home",
+    "cards": {
+      "home": {
+        "title": "Return home",
+        "description": "Head back to the homepage and start again."
+      },
+      "shop": {
+        "title": "Continue shopping",
+        "description": "Browse the catalog and find what you need."
+      },
+      "back": {
+        "title": "Try another route",
+        "description": "Use the menu or shop button to keep exploring."
+      }
     }
   },
   "wishlist": {

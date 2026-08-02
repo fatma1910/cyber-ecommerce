@@ -76,7 +76,7 @@ const Devices = async () => {
         </div>
       </div>
 
-      <div className="flex flex-col-reverse items-center justify-between gap-8 bg-[#EDEDED] px-6 py-8 text-center sm:px-8 lg:flex-row lg:items-center lg:px-0 lg:ps-10 lg:py-12 lg:text-start">
+      <div className="flex flex-col-reverse items-center justify-between gap-4 lg:gap-8 bg-[#EDEDED] px-6 py-8 text-center sm:px-8 lg:flex-row lg:items-center lg:px-0 lg:ps-10 lg:py-12 lg:text-start">
         <div className="flex max-w-md flex-col gap-3">
           <h1 className="text-4xl font-thin sm:text-5xl lg:text-[64px]">
             {t("macbook.titlePrefix")} <span className="font-medium">{t("macbook.titleEmphasis")}</span>
@@ -92,14 +92,14 @@ const Devices = async () => {
           </Link>
         </div>
 
-        <div className="flex">
+        <div className="flex lg:h-full">
           <Image
             src={"/home/MacBook.png"}
             loading="eager"
             alt={t("macbook.alt")}
             width={500}
             height={500}
-            className="hidden h-auto w-full object-cover sm:max-w-[420px] lg:flex lg:max-w-[500px]"
+            className="hidden h-full w-full object-cover sm:max-w-[420px] lg:flex lg:max-w-[500px]"
           />
           <Image
             src={"/home/featured4.png"}
@@ -107,7 +107,7 @@ const Devices = async () => {
             alt={t("macbook.alt")}
             width={500}
             height={500}
-            className="h-[200px] w-full max-w-[330px] object-cover lg:hidden"
+            className="h-auto w-full max-w-[330px] object-cover lg:hidden"
           />
         </div>
       </div>

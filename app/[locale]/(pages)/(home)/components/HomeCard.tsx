@@ -32,7 +32,7 @@ const HomeCard = ({
 
   return (
     <div
-      className="flex h-full flex-col justify-between gap-4 p-5 sm:gap-6 sm:p-6 lg:p-8"
+      className="flex h-full flex-col justify-between gap-1 p-5 sm:gap-6 sm:p-6 lg:p-8"
       style={{ backgroundColor: bg }}
     >
       <Image
@@ -40,9 +40,9 @@ const HomeCard = ({
         alt={title}
         width={360}
         height={360}
-        className="w-full object-contain"
+        className="w-full object-cover"
       />
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1 sm:gap-2">
         <h1
           className="text-2xl font-light sm:text-[29px]"
           style={{ color: titleColor }}

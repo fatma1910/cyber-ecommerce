@@ -3,19 +3,28 @@
 import { headerLinks } from "@/lib/constant";
 import { routing } from "@/i18n/routing";
 import Image from "next/image";
-import { Link, usePathname } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
-import { GoPerson } from "react-icons/go";
 import { X } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
+import { IoIosMenu } from "react-icons/io";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+
 
 const localePattern = new RegExp(`^/(${routing.locales.join("|")})(?=/|$)`);
 
 const Header = () => {
   const pathname = usePathname();
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const locale = useLocale();
   const t = useTranslations("navigation");
@@ -29,6 +38,15 @@ const Header = () => {
   const badgeSideClass = isRTL
     ? "start-0 -translate-x-1/2 -translate-y-1/2"
     : "end-0 translate-x-1/2 -translate-y-1/2";
+
+  const handleLocaleChange = (nextLocale: string) => {
+    const search = window.location.search;
+    const targetPath = normalizedPathname === "/" ? "/" : normalizedPathname;
+
+    router.replace(`${targetPath}${search}`, {
+      locale: nextLocale as "en" | "ar",
+    });
+  };
 
   return (
     <header className="border-b border-gray-500">
@@ -44,19 +62,7 @@ const Header = () => {
         </Link>
 
         <div className="flex items-center gap-3 sm:gap-4 lg:gap-14">
-          <button
-            type="button"
-            aria-label={isOpen ? common("closeMenu") : common("openMenu")}
-            aria-expanded={isOpen}
-            onClick={() => setIsOpen((prev) => !prev)}
-            className="lg:hidden"
-          >
-            <div className="flex h-6 w-6 flex-col items-center justify-center">
-              <span className="mb-1 block h-0.5 w-5 bg-gray-600 transition-transform duration-300" />
-              <span className="mb-1 block h-0.5 w-5 bg-gray-600 transition-transform duration-300" />
-              <span className="block h-0.5 w-5 bg-gray-600 transition-transform duration-300" />
-            </div>
-          </button>
+          
 
           <nav className="hidden items-center gap-10 lg:flex">
             {headerLinks.map((link) => (
@@ -122,6 +128,21 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-2 sm:gap-4">
+            <div className="hidden sm:block">
+              <Select value={locale} onValueChange={handleLocaleChange}>
+                <SelectTrigger
+                  className="h-9 w-28 rounded-full border-gray-200 bg-white px-3 text-xs font-semibold text-gray-700 shadow-none"
+                  aria-label={common("language")}
+                >
+                  <SelectValue placeholder={common("language")} />
+                </SelectTrigger>
+                <SelectContent className="w-28">
+                  <SelectItem value="en">{common("english")}</SelectItem>
+                  <SelectItem value="ar">{common("arabic")}</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
             <Link
               href="/wishlist"
               aria-label={common("wishlist")}
@@ -132,17 +153,25 @@ const Header = () => {
             <Link href="/cart" aria-label={common("cart")} className="relative transition duration-150">
               {cartItems.length > 0 && (
                 <span
-                  className={`absolute top-0 inline-flex items-center justify-center rounded-full bg-red-600 px-1 py-0.5 text-[10px] font-bold leading-none text-white ${badgeSideClass}`}
+                  className={`absolute top-1.5 right-0.5 flex items-center justify-center rounded-full bg-red-600  w-4   text-[10px] font-bold  text-white ${badgeSideClass}`}
                 >
                   {cartItems.length}
                 </span>
               )}
               <IoCartOutline size={24} className="sm:h-8 sm:w-8" />
             </Link>
-            <Link href="/login" aria-label={common("login")} className="transition duration-150">
-              <GoPerson size={24} className="sm:h-8 sm:w-8" />
-            </Link>
+            
           </div>
+          <button
+            type="button"
+            aria-label={isOpen ? common("closeMenu") : common("openMenu")}
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen((prev) => !prev)}
+            className="lg:hidden"
+          >
+            <IoIosMenu size={24} className="sm:h-8 sm:w-8" />
+
+          </button>
         </div>
       </div>
     </header>

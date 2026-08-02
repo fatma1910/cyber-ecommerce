@@ -83,8 +83,7 @@ const page = async ({
       >
         <RelatedProducts slug={product.slug} />
       </Suspense>
-      {/* <h1 className="text-3xl font-semibold">{product.name}</h1>
-      <p className="mt-2 text-sm text-gray-500">{t("description")}</p> */}
+      
     </div>
   );
 };

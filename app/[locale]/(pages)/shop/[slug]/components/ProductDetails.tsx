@@ -9,6 +9,10 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 import { toast } from "sonner";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const ProductDetails = ({ product }: { product: Product }) => {
   const [active, setActive] = useState(product.images[0].url);
@@ -65,38 +69,72 @@ const ProductDetails = ({ product }: { product: Product }) => {
   };
 
   return (
-    <section className="padding flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8">
-      <div className="flex min-w-0 flex-1 flex-col gap-4 sm:gap-6 lg:flex-row lg:gap-12">
-        <div className="grid grid-cols-4 gap-3 lg:flex lg:flex-col">
-          {product.images.map((image, index) => (
-            <button
-              key={index}
-              type="button"
-              onClick={() => setActive(image.url)}
-              className="overflow-hidden rounded-xl"
-            >
-              <Image
-                src={image.url}
-                alt={product.name}
-                width={80}
-                height={80}
-                className={`h-16 w-full object-contain transition sm:h-20 sm:w-20 ${
-                  active === image.url
-                    ? "opacity-100"
-                    : "opacity-40 hover:opacity-100"
-                }`}
-              />
-            </button>
-          ))}
+    <section className="padding flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-8 overflow-hidden">
+      <div className="flex min-w-0 flex-1 flex-col gap-4 sm:gap-6">
+        <div className="lg:hidden">
+          <Swiper
+            modules={[Pagination]}
+            spaceBetween={12}
+            slidesPerView={1}
+            onSlideChange={(swiper) => {
+              const nextImage = product.images[swiper.activeIndex];
+
+              if (nextImage) {
+                setActive(nextImage.url);
+              }
+            }}
+            pagination={{ clickable: true }}
+            className="product-details-mobile-swiper !overflow-visible"
+          >
+            {product.images.map((image, index) => (
+              <SwiperSlide key={index} className="!h-auto">
+                <div className="flex min-h-[320px] items-center justify-center overflow-hidden rounded-2xl border border-border bg-white p-4">
+                  <Image
+                    src={image.url}
+                    alt={product.name}
+                    width={640}
+                    height={640}
+                    className="h-auto max-h-[320px] w-full object-contain"
+                    priority={index === 0}
+                  />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
-        <div className="flex min-w-0 flex-1 justify-center">
-          <Image
-            src={active}
-            alt={product.name}
-            width={400}
-            height={516}
-            className="h-auto w-full max-w-[420px] object-contain sm:max-w-[520px] lg:h-[516px] lg:max-w-none"
-          />
+
+        <div className="hidden flex-col-reverse gap-4 sm:gap-6 lg:flex lg:flex-row lg:gap-12">
+          <div className="grid grid-cols-4 gap-3 lg:flex lg:flex-col">
+            {product.images.map((image, index) => (
+              <button
+                key={index}
+                type="button"
+                onClick={() => setActive(image.url)}
+                className="overflow-hidden rounded-xl"
+              >
+                <Image
+                  src={image.url}
+                  alt={product.name}
+                  width={80}
+                  height={80}
+                  className={`h-16 w-full object-contain transition sm:h-20 sm:w-20 ${
+                    active === image.url
+                      ? "opacity-100"
+                      : "opacity-40 hover:opacity-100"
+                  }`}
+                />
+              </button>
+            ))}
+          </div>
+          <div className="flex min-w-0 flex-1 justify-center">
+            <Image
+              src={active}
+              alt={product.name}
+              width={400}
+              height={516}
+              className="h-auto w-full max-w-[420px] object-contain sm:max-w-[520px] lg:h-[516px] lg:max-w-none"
+            />
+          </div>
         </div>
       </div>
 

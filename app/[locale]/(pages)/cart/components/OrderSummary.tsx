@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "@/i18n/navigation";
 import { useCartStore } from "@/store/cartStore";
 import { useTranslations } from "next-intl";
 
@@ -78,7 +79,8 @@ const OrderSummary = () => {
         </div>
 
         <Button
-          type="button"
+          nativeButton={false}
+          render={<Link href="/checkout" />}
           className="mt-4 h-[40px] w-full rounded-[6px] bg-black text-[14px] font-medium text-white hover:bg-black/90"
         >
           {t("checkout")}
