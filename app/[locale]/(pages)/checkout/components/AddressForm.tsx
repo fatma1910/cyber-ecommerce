@@ -73,7 +73,7 @@ export default function AddressForm({
               render={({ field }) => (
                 <Select
                   value={field.value}
-                  // @ts-expect-error Base UI select typing is narrower than the RHF handler here.
+                  
                   onValueChange={field.onChange}
                 >
                   <SelectTrigger
