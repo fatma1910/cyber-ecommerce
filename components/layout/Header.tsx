@@ -5,7 +5,7 @@ import { routing } from "@/i18n/routing";
 import Image from "next/image";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { X } from "lucide-react";
@@ -36,7 +36,7 @@ const Header = () => {
   const drawerSideClass = isRTL ? "start-0" : "end-0";
   const drawerClosedClass = isRTL ? "-translate-x-full" : "translate-x-full";
   const badgeSideClass = isRTL
-    ? "start-0 -translate-x-1/2 -translate-y-1/2"
+    ? "start-0 translate-x-1/2 -translate-y-1/2"
     : "end-0 translate-x-1/2 -translate-y-1/2";
 
   const handleLocaleChange = (nextLocale: string | null) => {
@@ -157,7 +157,7 @@ const Header = () => {
             <Link href="/cart" aria-label={common("cart")} className="relative transition duration-150">
               {cartItems.length > 0 && (
                 <span
-                  className={`absolute top-1.5 right-0.5 flex items-center justify-center rounded-full bg-red-600  w-4   text-[10px] font-bold  text-white ${badgeSideClass}`}
+                  className={`absolute top-1.5 right-0.5  flex items-center justify-center rounded-full bg-red-600  w-4   text-[10px] font-bold  text-white ${badgeSideClass}`}
                 >
                   {cartItems.length}
                 </span>
