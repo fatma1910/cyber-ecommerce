@@ -13,8 +13,8 @@ Cyber is a localized e-commerce storefront built with the Next.js App Router. It
 
 ## Demo
 
-- Live Demo: `https://your-live-demo-url.com`
-- Repository: `https://github.com/your-username/cyber`
+- Live Demo: `https://cyber-ecommerce-pearl.vercel.app/en`
+- Repository: `https://github.com/fatma1910/cyber-ecommerce`
 ---
 
 ## Features
