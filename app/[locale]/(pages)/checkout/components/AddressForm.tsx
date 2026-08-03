@@ -11,6 +11,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { CheckoutFormValues } from "@/lib/hooks/checkout-schema";
 import { useTranslations } from "next-intl";
 import type {
   Control,
@@ -19,7 +20,6 @@ import type {
 } from "react-hook-form";
 import { Controller } from "react-hook-form";
 
-import type { CheckoutFormValues } from "../validation/checkout-schema";
 
 type AddressFormProps = {
   register: UseFormRegister<CheckoutFormValues>;
