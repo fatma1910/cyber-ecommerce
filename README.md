@@ -1,36 +1,177 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Cyber
 
-## Getting Started
+![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=000)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=fff)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss&logoColor=fff)
+![Zustand](https://img.shields.io/badge/Zustand-State%20Management-443E38)
+![shadcn/ui](https://img.shields.io/badge/shadcn%2Fui-Components-111827)
+![next-intl](https://img.shields.io/badge/next--intl-Localization-6B7280)
+Cyber is a localized e-commerce storefront built with the Next.js App Router. It supports product browsing, filtering, product details, cart and wishlist management, checkout, reviews, and multilingual UI.
 
-First, run the development server:
+---
+
+## Demo
+
+- Live Demo: `https://your-live-demo-url.com`
+- Repository: `https://github.com/your-username/cyber`
+---
+
+## Features
+
+- Home page with hero, categories, featured products, discounts, and sale sections.
+- Shop catalog with category, subcategory, and price filtering.
+- Sorting and pagination in the shop page.
+- Dynamic product detail pages with slug-based routing.
+- Product image gallery with mobile Swiper support.
+- Variant selection before adding products to the cart.
+- Cart and wishlist with persisted Zustand state.
+- Checkout flow with React Hook Form and Zod validation.
+- Shipping fee calculation based on selected Egyptian city.
+- Product reviews with rating, validation, and toast feedback.
+- About and contact pages.
+- English and Arabic localization with RTL/LTR support.
+- Empty states, loading states, error handling, and a not-found page.
+
+---
+
+
+
+## Technologies Used
+
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS 4
+- Zustand
+- next-intl
+- shadcn/ui
+- `@base-ui/react`
+- React Hook Form
+- Zod
+- Sonner
+- Swiper
+- Lucide React
+- React Icons
+- Fetch API
+
+---
+
+## Project Structure
+
+- `app/` - App Router pages, layouts, and metadata
+- `app/[locale]/(pages)/` - Home, shop, cart, checkout, wishlist, about, contact, and thank-you pages
+- `components/layout/` - Header and footer
+- `components/shared/` - Shared product components
+- `components/ui/` - Reusable UI primitives
+- `lib/` - API helpers, constants, types, and validation schemas
+- `store/` - Zustand stores
+- `messages/` - English and Arabic translations
+- `public/` - Static images and icons
+
+---
+
+## State Management
+
+Cyber uses Zustand for two persisted stores:
+
+- `useCartStore` for cart items, quantities, totals, and tax
+- `useWishlistStore` for saved products
+
+Both stores use `persist` middleware so data stays after refresh.
+
+---
+
+## API Integration
+
+All API calls are centralized in [`lib/data.ts`](./lib/data.ts).
+
+- Uses the Fetch API
+- Base URL comes from `NEXT_PUBLIC_BASE_URL`
+- Some GET requests use `revalidate: 60`
+- Main endpoints include products, categories, bundles, offers, shipping, reviews, related products, and orders
+- Errors are handled with safe fallbacks and console logging
+
+---
+
+## Filtering
+
+The shop filters are synchronized with URL query params.
+
+- Category and subcategory filters
+- Price range filter
+- Sorting
+- Pagination
+- `searchParams` and `router.push()` keep the UI in sync without a full refresh
+
+---
+
+## SEO
+
+- Global metadata in the root layout
+- Route-level metadata for major pages
+- Dynamic product metadata from the product name and description
+- Semantic HTML
+
+---
+
+## Responsive Design
+
+The UI is responsive for desktop, laptop, tablet, and mobile.
+
+- Mobile navigation drawer
+- Mobile filter dialog
+- Responsive product grid
+- Responsive checkout and cart layouts
+
+---
+
+## Internationalization
+
+Cyber uses `next-intl` with:
+
+- English and Arabic translations
+- Locale-prefixed routing
+- RTL/LTR switching based on locale
+- Localized metadata
+
+---
+
+## Environment Variables
+
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_BASE_URL` | Base URL used for API requests |
+
+---
+
+## Installation
 
 ```bash
+git clone <your-repo-url>
+cd e-commerce-frontend
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_BASE_URL` in `.env` if needed.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Scripts
 
-## Learn More
+- `npm run dev` - Start development server
+- `npm run build` - Build production app
+- `npm run start` - Start production server
+- `npm run lint` - Run ESLint
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Author
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Fatma Saleh**  
+Frontend Developer
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- LinkedIn: `https://www.linkedin.com/in/fatma-saleh-77497b249/`
+- GitHub: `https://github.com/fatma1910`
+- Portfolio: `https://portfolio-beta-mauve-86.vercel.app/`
