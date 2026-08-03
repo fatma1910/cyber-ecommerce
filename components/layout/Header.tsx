@@ -5,7 +5,7 @@ import { routing } from "@/i18n/routing";
 import Image from "next/image";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoIosHeartEmpty } from "react-icons/io";
 import { IoCartOutline } from "react-icons/io5";
 import { X } from "lucide-react";
@@ -39,14 +39,18 @@ const Header = () => {
     ? "start-0 -translate-x-1/2 -translate-y-1/2"
     : "end-0 translate-x-1/2 -translate-y-1/2";
 
-  const handleLocaleChange = (nextLocale: string) => {
+  const handleLocaleChange = (nextLocale: string | null) => {
+    if (!nextLocale) return;
     const search = window.location.search;
     const targetPath = normalizedPathname === "/" ? "/" : normalizedPathname;
 
     router.replace(`${targetPath}${search}`, {
       locale: nextLocale as "en" | "ar",
     });
+    router.refresh();
   };
+
+
 
   return (
     <header className="border-b border-gray-500">

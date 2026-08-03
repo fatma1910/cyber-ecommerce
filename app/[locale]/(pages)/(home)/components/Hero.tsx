@@ -8,7 +8,7 @@ const Hero = async () => {
   const common = await getTranslations("common");
 
   return (
-    <section className="relative isolate overflow-hidden bg-[#211C24] padding-x py-12 sm:py-16 xl:flex xl:min-h-screen xl:flex-row xl:items-center xl:gap-11 xl:py-0">
+    <section className="relative isolate overflow-hidden bg-[#211C24] padding-x py-12 sm:py-16 xl:flex xl:min-h-screen xl:flex-row xl:items-center xl:gap-11 xl:py-0 " dir="ltr">
       <div className="relative z-10 mx-auto flex  flex-col gap-6 text-center xl:mx-0 xl:text-start">
         <p className="text-2xl font-semibold text-[#ffffff89]">{t("eyebrow")}</p>
         <h1 className="text-4xl font-thin tracking-tight text-white sm:text-6xl lg:text-[96px]">

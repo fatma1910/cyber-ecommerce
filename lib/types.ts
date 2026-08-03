@@ -129,3 +129,24 @@ export interface CartItem extends Product {
   quantity: number;
   selectedVariants: Record<string, string>;
 }
+
+
+export type SidebarProps = {
+  categories: CategoryDetails[];
+  maxPrice?: number;
+};
+
+export type SidebarContentProps = {
+  categories: CategoryDetails[];
+  categoryId: string | null;
+  subcategoryId: string | null;
+  openCategory: string[];
+  setOpenCategory: (value: string[]) => void;
+  maxPrice: number;
+  priceRange: number[];
+  setPriceRange: (value: number[]) => void;
+  onCategoryChange: (id: string) => void;
+  onSubCategoryChange: (categoryId: string, subcategoryId: string) => void;
+  onApplyPrice: () => void;
+  onClearPrice: () => void;
+};

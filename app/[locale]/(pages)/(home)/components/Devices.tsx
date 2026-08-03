@@ -8,7 +8,7 @@ const Devices = async () => {
   const common = await getTranslations("common");
 
   return (
-    <section className="grid overflow-hidden lg:grid-cols-2">
+    <section className="grid overflow-hidden lg:grid-cols-2" dir="ltr">
       <div className="grid">
         <div className="flex flex-col items-center gap-6 bg-[#F5F5F5] px-6 py-8 text-center sm:flex-row sm:text-start lg:px-0 lg:pe-8">
           <div className="flex flex-1 justify-center">
